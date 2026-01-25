@@ -1,120 +1,95 @@
 using System;
+using Microsoft.EntityFrameworkCore;
+using ProjetoBiblioteca.Api.Data;
+using ProjetoBiblioteca.Api.Dtos;
 using ProjetoBiblioteca.Api.Models;
 
 namespace ProjetoBiblioteca.Api.Endpoints;
 
 public static class LivrosEndpoint
 {
+    const string GetLivrosEndpointName = "GetGames";
     public static void MapLivrosEndpoints(this WebApplication app)
     {
-        // rota padrão para todas as rotas
-        // Simulação de banco de dados com dados pré-carregados
-        var Acervo = new List<Livro>
-        {
-            new Livro {
-                Codigo = 1,
-                Titulo = "Dom Casmurro",
-                Autor = "Machado de Assis",
-                Area = "Literatura",
-                Ano = 1899,
-                Editora = "Garnier"
-            },
-            new Livro {
-                Codigo = 2,
-                Titulo = "O Alquimista",
-                Autor = "Paulo Coelho",
-                Area = "Ficção",
-                Ano = 1988,
-                Editora = "Rocco"
-            },
-            new Livro {
-                Codigo = 3,
-                Titulo = "1984",
-                Autor = "George Orwell",
-                Area = "Distopia",
-                Ano = 1949,
-                Editora = "Secker & Warburg"
-            },
-            new Livro {
-                Codigo = 4,
-                Titulo = "Modernidade Líquida",
-                Autor = "Zygmunt Bauman",
-                Area = "Sociologia",
-                Ano = 1998,
-                Editora = "fulano"
-            },
-            new Livro {
-                Codigo = 5,
-                Titulo = "Harry Potter a o Cálice de Fogo",
-                Autor = "J.K Rolling",
-                Area = "Ficção",
-                Ano = 2000,
-                Editora = "Rocco"
-            },
-            new Livro {
-                Codigo = 6,
-                Titulo = "Homem Aranha",
-                Autor = "Stan Lee",
-                Area = "Ficção",
-                Ano = 1968,
-                Editora = "Marvel"
-            },
-        };
         var group = app.MapGroup("/livros");
 
-        // 1. Cadastrar (POST)
-        group.MapPost("/", (Livro novoLivro) =>
+        group.MapGet("/",async(BibliotecaContext dbContext) =>
         {
-            Acervo.Add(novoLivro);
-            return Results.Created($"/{novoLivro.Codigo}", novoLivro);
+            await dbContext.livros
+            .Include(l => l.Area)
+            .Select(l => new LivroSummaryDto(
+                l.Codigo,
+                l.Titulo,
+                l.Autor,
+                l.Area!.Nome,
+                l.Ano,
+                l.Editora
+            ))
+            .AsNoTracking()
+            .ToListAsync();
         });
 
-        // 2. Imprimir/Listar todos (GET)
-        group.MapGet("/", () => Results.Ok(Acervo));
-
-        // 3. Pesquisar por código (GET com parâmetro)
-        group.MapGet("/{codigo}", (int codigo) =>
+        group.MapGet("/{codigo}", async(int codigo, BibliotecaContext dbContext) =>
         {
-            var livro = Acervo.FirstOrDefault(l => l.Codigo == codigo);
-            return livro is not null ? Results.Ok(livro) : Results.NotFound();
-        });
+            var livro = await dbContext.livros.FindAsync(codigo);
+            return livro is null ? Results.NotFound() : Results.Ok(
+                new LivrosDetailsDto(
+                    livro.Codigo,
+                    livro.Titulo,
+                    livro.Autor,
+                    livro.Area.Id,
+                    livro.Ano,
+                    livro.Editora
+                )
+            );
+        }).WithName(GetLivrosEndpointName);
 
-        // 4. Modificar um livro a partir do código
-        group.MapPut("/{codigo}", (int codigo, Livro livroAlterado) =>
+        group.MapPost("/", async (CreateLivroDto newLivro, BibliotecaContext dbContext) =>
         {
-            var livroExistente = Acervo.FirstOrDefault(l => l.Codigo == codigo);
-
-            if (livroExistente == null)
+            Livro livro = new()
             {
-                return Results.NotFound(new { message = "livro não encontrado para atualização" });
-            }
+                Titulo = newLivro.Titulo,
+                Autor = newLivro.Autor,
+                AreaId = newLivro.AreaId,
+                Ano = newLivro.Ano,
+                Editora = newLivro.Editora
+            };
+            dbContext.livros.Add(livro);
+            await dbContext.SaveChangesAsync();
 
-            livroExistente.Titulo = livroAlterado.Titulo;
-            livroExistente.Autor = livroAlterado.Autor;
-            livroExistente.Area = livroAlterado.Area;
-            livroExistente.Ano = livroAlterado.Ano;
-            livroExistente.Editora = livroAlterado.Editora;
-
-            return Results.Ok(livroExistente);
+            var responseDto = new LivrosDetailsDto(
+                livro.Codigo,
+                livro.Titulo,
+                livro.Autor,
+                livro.AreaId,
+                livro.Ano,
+                livro.Editora
+            );
+            return Results.CreatedAtRoute(GetLivrosEndpointName, new {Codigo = livro.Codigo}, responseDto);
         });
-
-        // 5. Deletar um livro a partir do código
-        group.MapDelete("/{codigo}", (int codigo) =>
+    
+        group.MapPut("/{codigo}", async (int codigo, UpdateLivroDto updatedLivro, BibliotecaContext dbContext) =>
         {
-            var livro = Acervo.FirstOrDefault(l => l.Codigo == codigo);
-            if (livro == null)
-            {
-                return Results.NotFound(new { message = "livro não encontrado" });
-            }
-            Acervo.Remove(livro);
+            var existingLivro = await dbContext.livros.FindAsync(codigo);
+
+            if(existingLivro is null) return Results.NotFound();
+
+            existingLivro.Titulo = updatedLivro.Titulo;
+            existingLivro.Autor = updatedLivro.Autor;
+            existingLivro.Area.Id = updatedLivro.AreaId;
+            existingLivro.Ano = updatedLivro.Ano;
+            existingLivro.Editora = updatedLivro.Editora;
+            
+            await dbContext.SaveChangesAsync();
             return Results.NoContent();
         });
-
-        // 4. Ordenar por ano (GET)
-        group.MapGet("/livros/ordenados", () =>
+    
+        group.MapDelete("/{codigo}",async(int codigo, BibliotecaContext dbContext) =>
         {
-            var ordenados = Acervo.OrderBy(l => l.Ano).ToList();
-            return Results.Ok(ordenados);
+            await dbContext.livros.Where(l => l.Codigo == codigo).ExecuteDeleteAsync();
+            return Results.NoContent();
         });
     }
+
+
 }

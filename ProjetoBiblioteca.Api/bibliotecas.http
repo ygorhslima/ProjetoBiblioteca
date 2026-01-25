@@ -10,12 +10,11 @@ POST http://localhost:5002/livros
 Content-Type: application/json
 
 {
-    "codigo": 7,
-    "titulo": "Super Man",
-    "autor": "Alan More",
-    "area": "Ficção",
-    "ano": 1988,
-    "editora": "DC Comics"
+  "titulo": "Dom Casmurro",
+  "autor": "Machado de Assis",
+  "areaId": 1,
+  "ano": 1898,
+  "editora": "Garnier"
 }
 
 ###

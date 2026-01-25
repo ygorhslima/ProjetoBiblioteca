@@ -10,5 +10,6 @@ namespace ProjetoBiblioteca.Api.Data
     public class BibliotecaContext(DbContextOptions<BibliotecaContext> options): DbContext(options)
     {
         public DbSet<Livro> livros => Set<Livro>();
+        public DbSet<Area> areas => Set<Area>();
     }
 }

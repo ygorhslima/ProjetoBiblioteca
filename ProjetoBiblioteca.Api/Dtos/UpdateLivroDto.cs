@@ -6,7 +6,7 @@ public record UpdateLivroDto
 (
     [Required] string Titulo,
     [Required] string Autor,
-    [Required] string Area,
+    [Required] int AreaId,
     [Required] int Ano,
     [Required] string Editora
 );
