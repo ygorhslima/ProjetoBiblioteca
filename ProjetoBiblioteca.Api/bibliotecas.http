@@ -1,0 +1,33 @@
+GET http://localhost:5002/livros
+
+###
+
+GET http://localhost:5002/livros/1
+
+###
+
+POST http://localhost:5002/livros
+Content-Type: application/json
+
+{
+    "codigo": 7,
+    "titulo": "Super Man",
+    "autor": "Alan More",
+    "area": "Ficção",
+    "ano": 1988,
+    "editora": "DC Comics"
+}
+
+###
+
+PUT http://localhost:5002/livros/1
+Content-Type: application/json
+
+{
+    "codigo":1,
+    "titulo": "Dom Casmurro",
+    "autor": "Machado de Assis",
+    "area": "Literatura",
+    "ano": 1898,
+    "editora": "Garnier"
+},
