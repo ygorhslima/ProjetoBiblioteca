@@ -1,31 +1,35 @@
 import { useState } from "react";
+import "./style.css";
 import Header from "../Header";
 import SideBar from "../SideBar";
 
-interface LayoutProps{
-    children: React.ReactNode;
+interface LayoutProps {
+  children: React.ReactNode;
 }
 
-export default function LayoutWrapper({children}:LayoutProps)
-{
+export default function LayoutWrapper({ children }: LayoutProps) {
+  const [isSidebarOpen, setIsSetbarOpen] = useState(true);
 
-    const [isSidebarOpen, setIsSetbarOpen] = useState(true);
-    
-    const onToggleMenu = () =>{
-        setIsSetbarOpen(!isSidebarOpen);
-    }
+  const onToggleMenu = () => {
+    setIsSetbarOpen(!isSidebarOpen);
+  };
 
-    return(
-        <div className="app-layout">
-            <Header onToggleMenu={onToggleMenu}/>
-            <div className="content-area">
-                <SideBar isOpen={isSidebarOpen}/>
-                
-                {/*o main é onde as páginas serão renderizadas*/}
-                <main>
-                    {children}
-                </main>
-            </div>
-        </div>
-    )
+  return (
+    // Container Pai: Ocupa a tela toda e não deixa scroll no body
+    <div className="layout-wrapper">
+      {/* 1. Lado Esquerdo: Sidebar fixa */}
+      <SideBar isOpen={isSidebarOpen} />
+
+      {/* 2. Lado Direito: Container vertical para Header + Conteúdo */}
+      <div className="wrapper">
+        {/* Header no topo */}
+        <Header onToggleMenu={onToggleMenu} />
+
+        {/* Área de conteúdo que realmente rola */}
+        <main>
+          {children}
+        </main>
+      </div>
+    </div>
+  );
 }

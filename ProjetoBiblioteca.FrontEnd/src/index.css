@@ -1,7 +1,8 @@
 :root{
   --background-components:#FFFFFF;
-  --background-menu: #262A2D;
+  --background-header: #262A2D;
   --background-view-books:#EBF0F0;
+  --background-sidebar:#373D42;
   --color-primary:#156EFD;
   --color-primary-active:#61A0FE;
 }
@@ -25,4 +26,8 @@ button{
 input{
   border: none;
   outline: none;
+}
+
+a{
+  text-decoration: none;
 }

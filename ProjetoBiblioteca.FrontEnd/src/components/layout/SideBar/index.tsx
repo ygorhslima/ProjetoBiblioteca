@@ -1,24 +1,40 @@
-import { Link } from 'react-router-dom';
-import './style.css'
+import { Link } from "react-router-dom";
+import "./style.css";
 
-interface SideBarProps{
-    isOpen:boolean;
+interface SideBarProps {
+  isOpen: boolean;
 }
-export default function SideBar({isOpen}:SideBarProps)
-{
-    return(
-        <>
-           {isOpen && (
-            <div className='sidebar'>
-                <Link to={`/livros`}>Todos os livros </Link>
-                <Link to={`/livros/1`}>Ficção Científica</Link>
-                <Link to={`/livros/2`}>Fantasia</Link>
-                <Link to={`/livros/3`}>Biografia</Link>
-                <Link to={'/livros/4'}>História</Link>
-                <Link to={'/livros/5'}>Tecnologia</Link>
-                <Link to={'/livros/6'}>Suspense</Link>
-            </div>
-           )}
-        </>
-    )
+export default function SideBar({ isOpen }: SideBarProps) {
+  return (
+    <>
+        <div className={`sidebar ${isOpen ? "open":"closed"}`}>
+          <div className="view-books">
+            <Link to={`/livros`} className="link">
+              Todos os livros
+            </Link>
+            <Link to={`/livros/1`} className="link">
+              Ficção Científica
+            </Link>
+            <Link to={`/livros/2`} className="link">
+              Fantasia
+            </Link>
+            <Link to={`/livros/3`} className="link">
+              Biografia
+            </Link>
+            <Link to={"/livros/4"} className="link">
+              História
+            </Link>
+            <Link to={"/livros/5"} className="link">
+              Tecnologia
+            </Link>
+            <Link to={"/livros/6"} className="link">
+              Suspense
+            </Link>
+          </div>
+          <div className="add-books">
+            <Link to={"/livros/"} className="link">Adicionar livros</Link>
+          </div>
+        </div>
+    </>
+  );
 }
