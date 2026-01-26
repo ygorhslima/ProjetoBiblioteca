@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import "./style.css";
 
 const SearchBar = () => {
   return (
@@ -7,9 +8,10 @@ const SearchBar = () => {
         type="text"
         className="search-book"
         placeholder="Pesquise um livro..."
+        required
       />
-      <button>
-        <Search size={18}/>
+      <button className="button-search">
+        <Search size={16} />
       </button>
     </div>
   );

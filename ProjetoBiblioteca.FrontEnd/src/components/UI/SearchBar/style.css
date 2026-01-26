@@ -1,0 +1,23 @@
+
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-book{
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.button-search{
+    padding: 8.4px;
+    background-color: var(--color-primary);
+    transition: 0.7s;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.button-search:hover{
+    background-color: var(--color-primary-active);
+}

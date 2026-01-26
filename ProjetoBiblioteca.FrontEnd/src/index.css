@@ -5,3 +5,24 @@
   --color-primary:#156EFD;
   --color-primary-active:#61A0FE;
 }
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button{
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input{
+  border: none;
+  outline: none;
+}

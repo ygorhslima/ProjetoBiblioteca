@@ -1,12 +1,17 @@
+import './style.css';
 import SearchBar from "../../UI/SearchBar/SearchBar";
+import ButtonHamburger from '../../UI/ButtonHambuguer';
 
-export default function Header()
+interface HeaderProps{
+    onToggleMenu:()=>void;
+}
+
+export default function Header(props:HeaderProps)
 {
     return(
         <header>
-            <div className="search-container">
-                <SearchBar/>
-            </div>
+            <ButtonHamburger onClick={props.onToggleMenu}/>
+            <SearchBar/>
         </header>
     )
 }
