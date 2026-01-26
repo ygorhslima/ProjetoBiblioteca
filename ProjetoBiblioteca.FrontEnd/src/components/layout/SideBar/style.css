@@ -5,13 +5,17 @@
   --accent-color: #3b82f6; /* Azul para destaques */
 }
 
+h1{
+    text-align: center;
+}
+
 .sidebar {
     width: var(--sidebar-width);
     height: 100vh; /* Ocupa a altura total da tela */
     background-color: var(--background-sidebar);
     overflow-y: auto;
     color: white;
-    padding: 20px 0;
+    padding: 50px 0;
     transition: all 0.3s ease;
     border-right: 1px solid #444;
     position: sticky;
