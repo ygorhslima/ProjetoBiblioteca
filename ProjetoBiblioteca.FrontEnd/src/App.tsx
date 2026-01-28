@@ -1,10 +1,8 @@
-import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import BookList from "./components/Books/BookList";
-
 import LayoutWrapper from "./components/layout/LayoutWrapper";
+import AddBooks from "./page/AddBooks";
+import Home from "./page/Home";
 
 function App() {
   return (
@@ -12,7 +10,8 @@ function App() {
       <BrowserRouter>
         <LayoutWrapper>
           <Routes>
-            <Route path="/livros" element={<BookList />}></Route>
+            <Route path="/ProjetoBiblioteca/livros" element={<Home />}></Route>
+            <Route path="/ProjetoBiblioteca/addlivros" element={<AddBooks />}></Route>
           </Routes>
         </LayoutWrapper>
       </BrowserRouter>

@@ -13,23 +13,25 @@ public static class LivrosEndpoint
     {
         var group = app.MapGroup("/livros");
 
-        group.MapGet("/",async(BibliotecaContext dbContext) =>
-        {
-            await dbContext.livros
-            .Include(l => l.Area)
-            .Select(l => new LivroSummaryDto(
-                l.Codigo,
-                l.Titulo,
-                l.Autor,
-                l.Area!.Nome,
-                l.Ano,
-                l.Editora
-            ))
-            .AsNoTracking()
-            .ToListAsync();
-        });
+        group.MapGet("/", async (BibliotecaContext dbContext) =>
+         {
+             var livros = await dbContext.livros
+                 .Include(l => l.Area)
+                 .Select(l => new LivroSummaryDto(
+                     l.Codigo,
+                     l.Titulo,
+                     l.Autor,
+                     l.Area!.Nome,
+                     l.Ano,
+                     l.Editora
+                 ))
+                 .AsNoTracking()
+                 .ToListAsync();
 
-        group.MapGet("/{codigo}", async(int codigo, BibliotecaContext dbContext) =>
+             return Results.Ok(livros); // Adicione o return aqui!
+         });
+
+        group.MapGet("/{codigo}", async (int codigo, BibliotecaContext dbContext) =>
         {
             var livro = await dbContext.livros.FindAsync(codigo);
             return livro is null ? Results.NotFound() : Results.Ok(
@@ -65,26 +67,26 @@ public static class LivrosEndpoint
                 livro.Ano,
                 livro.Editora
             );
-            return Results.CreatedAtRoute(GetLivrosEndpointName, new {Codigo = livro.Codigo}, responseDto);
+            return Results.CreatedAtRoute(GetLivrosEndpointName, new { Codigo = livro.Codigo }, responseDto);
         });
-    
+
         group.MapPut("/{codigo}", async (int codigo, UpdateLivroDto updatedLivro, BibliotecaContext dbContext) =>
         {
             var existingLivro = await dbContext.livros.FindAsync(codigo);
 
-            if(existingLivro is null) return Results.NotFound();
+            if (existingLivro is null) return Results.NotFound();
 
             existingLivro.Titulo = updatedLivro.Titulo;
             existingLivro.Autor = updatedLivro.Autor;
             existingLivro.Area.Id = updatedLivro.AreaId;
             existingLivro.Ano = updatedLivro.Ano;
             existingLivro.Editora = updatedLivro.Editora;
-            
+
             await dbContext.SaveChangesAsync();
             return Results.NoContent();
         });
-    
-        group.MapDelete("/{codigo}",async(int codigo, BibliotecaContext dbContext) =>
+
+        group.MapDelete("/{codigo}", async (int codigo, BibliotecaContext dbContext) =>
         {
             await dbContext.livros.Where(l => l.Codigo == codigo).ExecuteDeleteAsync();
             return Results.NoContent();

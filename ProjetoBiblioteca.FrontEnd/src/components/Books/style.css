@@ -1,9 +1,12 @@
 .book-list{
     background-color: var(--background-view-books);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: 1fr;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .book-card{
@@ -27,4 +30,11 @@
 
 .book-card .info-container .info-h1{
     color: var(--color-primary);
+}
+
+@media screen and (max-width:768px) {
+    .book-list{
+        grid-template-columns: 1fr;
+        grid-auto-flow: 1fr;
+    }
 }
