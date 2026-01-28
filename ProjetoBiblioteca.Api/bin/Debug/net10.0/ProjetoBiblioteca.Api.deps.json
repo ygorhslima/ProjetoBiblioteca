@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v10.0": {
       "ProjetoBiblioteca.Api/1.0.0": {
         "dependencies": {
-          "Google.Apis.Books.v1": "1.8.1.480",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.0",
@@ -18,79 +17,11 @@
           "ProjetoBiblioteca.Api.dll": {}
         }
       },
-      "Google.Apis/1.8.1": {
-        "dependencies": {
-          "Google.Apis.Core": "1.8.1"
-        },
-        "runtime": {
-          "lib/net40/Google.Apis.PlatformServices.dll": {
-            "assemblyVersion": "1.8.1.31691",
-            "fileVersion": "0.0.0.0"
-          },
-          "lib/net40/Google.Apis.dll": {
-            "assemblyVersion": "1.8.1.31687",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "Google.Apis.Auth/1.8.1": {
-        "dependencies": {
-          "Google.Apis.Core": "1.8.1"
-        },
-        "runtime": {
-          "lib/net40/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.8.1.31699",
-            "fileVersion": "0.0.0.0"
-          },
-          "lib/net40/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.8.1.31688",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "Google.Apis.Books.v1/1.8.1.480": {
-        "dependencies": {
-          "Google.Apis": "1.8.1",
-          "Google.Apis.Auth": "1.8.1"
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp71+win8/Google.Apis.Books.v1.dll": {
-            "assemblyVersion": "1.8.1.48",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "Google.Apis.Core/1.8.1": {
-        "dependencies": {
-          "Microsoft.Bcl.Async": "1.0.16",
-          "Microsoft.Net.Http": "2.1.10",
-          "Newtonsoft.Json": "5.0.5",
-          "Zlib.Portable": "1.9.2"
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp71+win8/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.8.1.31685",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
-          }
-        }
-      },
-      "Microsoft.Bcl.Async/1.0.16": {
-        "runtime": {
-          "lib/net45/Microsoft.Threading.Tasks.Extensions.dll": {
-            "assemblyVersion": "1.0.12.0",
-            "fileVersion": "1.0.16.0"
-          },
-          "lib/net45/Microsoft.Threading.Tasks.dll": {
-            "assemblyVersion": "1.0.12.0",
-            "fileVersion": "1.0.16.0"
           }
         }
       },
@@ -434,18 +365,6 @@
           }
         }
       },
-      "Microsoft.Net.Http/2.1.10": {
-        "runtime": {
-          "lib/net45/System.Net.Http.Extensions.dll": {
-            "assemblyVersion": "2.1.10.0",
-            "fileVersion": "2.1.10.0"
-          },
-          "lib/net45/System.Net.Http.Primitives.dll": {
-            "assemblyVersion": "4.0.10.0",
-            "fileVersion": "4.0.10.0"
-          }
-        }
-      },
       "Mono.TextTemplating/3.0.0": {
         "dependencies": {
           "System.CodeDom": "6.0.0"
@@ -462,14 +381,6 @@
           "lib/net9.0/MySqlConnector.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.4.0.0"
-          }
-        }
-      },
-      "Newtonsoft.Json/5.0.5": {
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "5.0.5.16108"
           }
         }
       },
@@ -552,14 +463,6 @@
             "fileVersion": "7.0.22.51805"
           }
         }
-      },
-      "Zlib.Portable/1.9.2": {
-        "runtime": {
-          "lib/portable-net4+sl4+wp71+win8/Zlib.Portable.dll": {
-            "assemblyVersion": "1.9.1.9000",
-            "fileVersion": "1.9.1.9000"
-          }
-        }
       }
     }
   },
@@ -569,47 +472,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Google.Apis/1.8.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GqPiAL6vSnHw9Gkw3GHvTTjOAHNYWDS9s1FYbiRgTK8JGW9IP4yvEQrPN+O54YgWoBwVW/eSkAVy2JfjVKLcDQ==",
-      "path": "google.apis/1.8.1",
-      "hashPath": "google.apis.1.8.1.nupkg.sha512"
-    },
-    "Google.Apis.Auth/1.8.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dOGplJPFjTEdfGwRjmWyOOg0o9xQmH6hxZFutBL8zfVRvkn4/v6Mo/IHVFkaRbIZcSKjjeF34lX71KsEWkaTJw==",
-      "path": "google.apis.auth/1.8.1",
-      "hashPath": "google.apis.auth.1.8.1.nupkg.sha512"
-    },
-    "Google.Apis.Books.v1/1.8.1.480": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-K9roolw5rVPk+ppUqK8oRuGqlDSKQZdb1ou+j/8Eh+3fk94bM46JIoFQ3a8vIpEqQaZylMLnwok3Re5Ciy0x2w==",
-      "path": "google.apis.books.v1/1.8.1.480",
-      "hashPath": "google.apis.books.v1.1.8.1.480.nupkg.sha512"
-    },
-    "Google.Apis.Core/1.8.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-2ieJ5joX0yxdONZZnIUr73Lw1oYqxM89MU4nObu7psAxlystdgdsW6zNWtBCF+ojCWm+KBwnefJNkCiQLkykxA==",
-      "path": "google.apis.core/1.8.1",
-      "hashPath": "google.apis.core.1.8.1.nupkg.sha512"
-    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
-    },
-    "Microsoft.Bcl.Async/1.0.16": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-oni7H/dyq0qHhRe07w1LEPLvn5PX1K6z5Pv8Fs69d/s14jd4q4unp3A+kYv2jqd4Naf7o5ziAZPkAX5wNq2jjw==",
-      "path": "microsoft.bcl.async/1.0.16",
-      "hashPath": "microsoft.bcl.async.1.0.16.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
       "type": "package",
@@ -695,13 +563,6 @@
       "path": "microsoft.extensions.dependencymodel/9.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.9.0.0.nupkg.sha512"
     },
-    "Microsoft.Net.Http/2.1.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6moiNdVxBDxxxrFAER6uAXlouGLaPM+LuZJMnAYlfNYIySJBh+zRiF9XiiIdWuh60nW6wP4shu4DaqBbVdOQsA==",
-      "path": "microsoft.net.http/2.1.10",
-      "hashPath": "microsoft.net.http.2.1.10.nupkg.sha512"
-    },
     "Mono.TextTemplating/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -715,13 +576,6 @@
       "sha512": "sha512-78M+gVOjbdZEDIyXQqcA7EYlCGS3tpbUELHvn6638A2w0pkPI625ixnzsa5staAd3N9/xFmPJtkKDYwsXpFi/w==",
       "path": "mysqlconnector/2.4.0",
       "hashPath": "mysqlconnector.2.4.0.nupkg.sha512"
-    },
-    "Newtonsoft.Json/5.0.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-AebRejL6yvioVC3mIujWbCAXNHibkqYColmgub7iSnLmkNvOTWSfWa8IT/rgRJ5GMWltO/RHJH+cW4gVKSx2cw==",
-      "path": "newtonsoft.json/5.0.5",
-      "hashPath": "newtonsoft.json.5.0.5.nupkg.sha512"
     },
     "Pomelo.EntityFrameworkCore.MySql/9.0.0": {
       "type": "package",
@@ -778,13 +632,6 @@
       "sha512": "sha512-ZK0KNPfbtxVceTwh+oHNGUOYV2WNOHReX2AXipuvkURC7s/jPwoWfsu3SnDBDgofqbiWr96geofdQ2erm/KTHg==",
       "path": "system.composition.typedparts/7.0.0",
       "hashPath": "system.composition.typedparts.7.0.0.nupkg.sha512"
-    },
-    "Zlib.Portable/1.9.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dGhGIU3+YuYx6SmivS5Ct5AGVq7yDeQ3kJ5QI2syyGAbwu6R678UbKvXInpJAfv0fS4qs1WVrfTMw4Po3muriA==",
-      "path": "zlib.portable/1.9.2",
-      "hashPath": "zlib.portable.1.9.2.nupkg.sha512"
     }
   }
 }

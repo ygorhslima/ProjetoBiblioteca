@@ -117,15 +117,3 @@
 /home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/obj/Debug/net10.0/ProjetoBiblioteca.Api.pdb
 /home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/obj/Debug/net10.0/ProjetoBiblioteca.Api.genruntimeconfig.cache
 /home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/obj/Debug/net10.0/ref/ProjetoBiblioteca.Api.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.PlatformServices.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.Auth.PlatformServices.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.Auth.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.Books.v1.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Google.Apis.Core.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Microsoft.Threading.Tasks.Extensions.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Microsoft.Threading.Tasks.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/System.Net.Http.Extensions.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/System.Net.Http.Primitives.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Newtonsoft.Json.dll
-/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/bin/Debug/net10.0/Zlib.Portable.dll
