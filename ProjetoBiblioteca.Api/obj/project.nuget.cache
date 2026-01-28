@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "Wl7TLLKhbKw=",
+  "dgSpecHash": "qPNsYptbZB8=",
   "success": true,
   "projectFilePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
   "expectedPackageFiles": [
+    "/home/ygor/.nuget/packages/google.apis/1.8.1/google.apis.1.8.1.nupkg.sha512",
+    "/home/ygor/.nuget/packages/google.apis.auth/1.8.1/google.apis.auth.1.8.1.nupkg.sha512",
+    "/home/ygor/.nuget/packages/google.apis.books.v1/1.8.1.480/google.apis.books.v1.1.8.1.480.nupkg.sha512",
+    "/home/ygor/.nuget/packages/google.apis.core/1.8.1/google.apis.core.1.8.1.nupkg.sha512",
     "/home/ygor/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/ygor/.nuget/packages/microsoft.bcl/1.0.19/microsoft.bcl.1.0.19.nupkg.sha512",
+    "/home/ygor/.nuget/packages/microsoft.bcl.async/1.0.16/microsoft.bcl.async.1.0.16.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
+    "/home/ygor/.nuget/packages/microsoft.bcl.build/1.0.7/microsoft.bcl.build.1.0.7.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.build.locator/1.7.8/microsoft.build.locator.1.7.8.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.4/microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
@@ -20,8 +27,10 @@
     "/home/ygor/.nuget/packages/microsoft.entityframeworkcore.design/9.0.0/microsoft.entityframeworkcore.design.9.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.entityframeworkcore.relational/9.0.0/microsoft.entityframeworkcore.relational.9.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg.sha512",
+    "/home/ygor/.nuget/packages/microsoft.net.http/2.1.10/microsoft.net.http.2.1.10.nupkg.sha512",
     "/home/ygor/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/mysqlconnector/2.4.0/mysqlconnector.2.4.0.nupkg.sha512",
+    "/home/ygor/.nuget/packages/newtonsoft.json/5.0.5/newtonsoft.json.5.0.5.nupkg.sha512",
     "/home/ygor/.nuget/packages/pomelo.entityframeworkcore.mysql/9.0.0/pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/system.composition/7.0.0/system.composition.7.0.0.nupkg.sha512",
@@ -29,7 +38,129 @@
     "/home/ygor/.nuget/packages/system.composition.convention/7.0.0/system.composition.convention.7.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/system.composition.hosting/7.0.0/system.composition.hosting.7.0.0.nupkg.sha512",
     "/home/ygor/.nuget/packages/system.composition.runtime/7.0.0/system.composition.runtime.7.0.0.nupkg.sha512",
-    "/home/ygor/.nuget/packages/system.composition.typedparts/7.0.0/system.composition.typedparts.7.0.0.nupkg.sha512"
+    "/home/ygor/.nuget/packages/system.composition.typedparts/7.0.0/system.composition.typedparts.7.0.0.nupkg.sha512",
+    "/home/ygor/.nuget/packages/zlib.portable/1.9.2/zlib.portable.1.9.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Newtonsoft.Json' 5.0.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Google.Apis 1.8.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Google.Apis",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Google.Apis.Auth 1.8.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Google.Apis.Auth",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Google.Apis.Books.v1 1.8.1.480' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Google.Apis.Books.v1",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Google.Apis.Core 1.8.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Google.Apis.Core",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Bcl 1.0.19' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Microsoft.Bcl",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Bcl.Async 1.0.16' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Microsoft.Bcl.Async",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Net.Http 2.1.10' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Microsoft.Net.Http",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Newtonsoft.Json 5.0.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Zlib.Portable 1.9.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/ygor/Documentos/Projetos/ProjetoBiblioteca/ProjetoBiblioteca.Api/ProjetoBiblioteca.Api.csproj",
+      "libraryId": "Zlib.Portable",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

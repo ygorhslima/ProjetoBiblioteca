@@ -6,5 +6,6 @@ public record LivroSummaryDto(
     string Autor,
     string Area,
     int Ano,
-    string Editora
+    string Editora,
+    string ImagemUrl
 );

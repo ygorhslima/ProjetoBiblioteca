@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, cloneElement, isValidElement } from "react";
 import "./style.css";
 import Header from "../Header";
 import SideBar from "../SideBar";
@@ -9,25 +10,26 @@ interface LayoutProps {
 
 export default function LayoutWrapper({ children }: LayoutProps) {
   const [isSidebarOpen, setIsSetbarOpen] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // Novo estado de busca
 
   const onToggleMenu = () => {
     setIsSetbarOpen(!isSidebarOpen);
   };
 
   return (
-    // Container Pai: Ocupa a tela toda e não deixa scroll no body
     <div className="layout-wrapper">
-      {/* 1. Lado Esquerdo: Sidebar fixa */}
       <SideBar isOpen={isSidebarOpen} />
-
-      {/* 2. Lado Direito: Container vertical para Header + Conteúdo */}
       <div className="wrapper">
-        {/* Header no topo */}
-        <Header onToggleMenu={onToggleMenu} />
+        {/* Passamos a função de busca para o Header */}
+        <Header onToggleMenu={onToggleMenu} onSearch={setSearchTerm} />
 
-        {/* Área de conteúdo que realmente rola */}
         <main>
-          {children}
+          {/* Injetamos a prop searchTerm em todos os componentes filhos 
+            que são elementos React válidos.
+          */}
+          {isValidElement(children) 
+            ? cloneElement(children as React.ReactElement<any>, { searchTerm }) 
+            : children}
         </main>
       </div>
     </div>

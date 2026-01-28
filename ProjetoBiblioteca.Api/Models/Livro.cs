@@ -12,4 +12,5 @@ public class Livro
     public Area Area {get;set;}
     public int Ano {get;set;}
     public string Editora {get;set;}
+    public string ImagemUrl {get; set;}
 }

@@ -6,5 +6,6 @@ public record LivrosDetailsDto(
     string Autor,
     int AreaId,
     int Ano,
-    string Editora
+    string Editora,
+    string ImagemUrl
 );

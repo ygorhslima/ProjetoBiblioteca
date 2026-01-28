@@ -2,16 +2,16 @@ import './style.css';
 import SearchBar from "../../UI/SearchBar/SearchBar";
 import ButtonHamburger from '../../UI/ButtonHambuguer';
 
-interface HeaderProps{
-    onToggleMenu:()=>void;
+interface HeaderProps {
+    onToggleMenu: () => void;
+    onSearch: (text: string) => void; // Adicione aqui
 }
 
-export default function Header(props:HeaderProps)
-{
-    return(
+export default function Header({ onToggleMenu, onSearch }: HeaderProps) {
+    return (
         <header>
-            <ButtonHamburger onClick={props.onToggleMenu}/>
-            <SearchBar/>
+            <ButtonHamburger onClick={onToggleMenu}/>
+            <SearchBar onSearch={onSearch}/> 
         </header>
     )
 }

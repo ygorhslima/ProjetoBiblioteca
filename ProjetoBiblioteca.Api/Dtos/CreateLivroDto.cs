@@ -7,5 +7,6 @@ public record CreateLivroDto(
     [Required] string Autor,
     [Required] int AreaId,
     [Required] int Ano,
-    [Required] string Editora
+    [Required] string Editora,
+    string ImagemUrl
 );

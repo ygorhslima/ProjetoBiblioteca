@@ -23,7 +23,8 @@ public static class LivrosEndpoint
                      l.Autor,
                      l.Area!.Nome,
                      l.Ano,
-                     l.Editora
+                     l.Editora,
+                     l.ImagemUrl
                  ))
                  .AsNoTracking()
                  .ToListAsync();
@@ -41,7 +42,8 @@ public static class LivrosEndpoint
                     livro.Autor,
                     livro.Area.Id,
                     livro.Ano,
-                    livro.Editora
+                    livro.Editora,
+                    livro.ImagemUrl
                 )
             );
         }).WithName(GetLivrosEndpointName);
@@ -54,7 +56,8 @@ public static class LivrosEndpoint
                 Autor = newLivro.Autor,
                 AreaId = newLivro.AreaId,
                 Ano = newLivro.Ano,
-                Editora = newLivro.Editora
+                Editora = newLivro.Editora,
+                ImagemUrl = newLivro.ImagemUrl
             };
             dbContext.livros.Add(livro);
             await dbContext.SaveChangesAsync();
@@ -65,7 +68,8 @@ public static class LivrosEndpoint
                 livro.Autor,
                 livro.AreaId,
                 livro.Ano,
-                livro.Editora
+                livro.Editora,
+                livro.ImagemUrl
             );
             return Results.CreatedAtRoute(GetLivrosEndpointName, new { Codigo = livro.Codigo }, responseDto);
         });
@@ -81,6 +85,7 @@ public static class LivrosEndpoint
             existingLivro.Area.Id = updatedLivro.AreaId;
             existingLivro.Ano = updatedLivro.Ano;
             existingLivro.Editora = updatedLivro.Editora;
+            existingLivro.ImagemUrl = updatedLivro.ImagemUrl;
 
             await dbContext.SaveChangesAsync();
             return Results.NoContent();

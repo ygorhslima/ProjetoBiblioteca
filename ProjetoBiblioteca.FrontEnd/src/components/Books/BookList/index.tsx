@@ -1,6 +1,7 @@
+import "../style.css";
 import { useEffect, useState } from "react";
 import BookCard from "../BookCard";
-import '../style.css';
+import { useSearch } from "../../context/SearchContext";
 
 interface Livro {
   codigo: number;
@@ -14,22 +15,26 @@ interface Livro {
 export default function BookList() {
   // 1. Estado para armazenar os livros que vêm da API
   const [livros, setLivros] = useState<Livro[]>([]);
+  const { searchTerm } = useSearch(); // pega o termo globalmente
   const [loading, setLoading] = useState(true);
 
   // 2. Função para buscar os dados
   const fetchLivros = async () => {
     try {
-      const response = await fetch("http://localhost:5002/livros"); // Verifique a porta do seu backend
-      if (!response.ok) throw new Error("Erro ao buscar livros");
-      
-      const data = await response.json();
+      const response = await fetch("http://localhost:5002/livros");
+      const data: Livro[] = await response.json();
       setLivros(data);
     } catch (error) {
-      console.error("Erro na requisição:", error);
+      console.error("Erro ao buscar dados", error);
     } finally {
       setLoading(false);
     }
   };
+
+  const livrosFiltrados = livros.filter((l) =>
+    l.titulo.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    l.autor.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   // 3. Executa a busca assim que o componente é montado
   useEffect(() => {
@@ -40,10 +45,10 @@ export default function BookList() {
 
   return (
     <div className="book-list">
-      {livros.length > 0 ? (
-        livros.map((el) => (
+      {livrosFiltrados.length > 0 ? (
+        livrosFiltrados.map((el) => (
           <BookCard
-            key={el.codigo} // Use o código único do banco como key
+            key={el.codigo}
             codigo={el.codigo}
             titulo={el.titulo}
             autor={el.autor}
@@ -53,7 +58,7 @@ export default function BookList() {
           />
         ))
       ) : (
-        <p>Nenhum livro encontrado.</p>
+        <p style={{ textAlign: "center" }}>Nenhum livro encontrado.</p>
       )}
     </div>
   );
