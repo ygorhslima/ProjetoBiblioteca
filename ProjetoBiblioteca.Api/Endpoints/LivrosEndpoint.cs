@@ -13,6 +13,7 @@ public static class LivrosEndpoint
     {
         var group = app.MapGroup("/livros");
 
+        // obtendo todos os livros do banco de dados
         group.MapGet("/", async (BibliotecaContext dbContext) =>
          {
              var livros = await dbContext.livros
@@ -32,6 +33,7 @@ public static class LivrosEndpoint
              return Results.Ok(livros); // Adicione o return aqui!
          });
 
+        // obtendo somente o livro que tiver o código que o usuário procura
         group.MapGet("/{codigo}", async (int codigo, BibliotecaContext dbContext) =>
         {
             var livro = await dbContext.livros.FindAsync(codigo);
@@ -48,6 +50,7 @@ public static class LivrosEndpoint
             );
         }).WithName(GetLivrosEndpointName);
 
+        // adicionando um novo livro
         group.MapPost("/", async (CreateLivroDto newLivro, BibliotecaContext dbContext) =>
         {
             Livro livro = new()
@@ -74,6 +77,7 @@ public static class LivrosEndpoint
             return Results.CreatedAtRoute(GetLivrosEndpointName, new { Codigo = livro.Codigo }, responseDto);
         });
 
+        // atualizando um livro a partir do código
         group.MapPut("/{codigo}", async (int codigo, UpdateLivroDto updatedLivro, BibliotecaContext dbContext) =>
         {
             var existingLivro = await dbContext.livros.FindAsync(codigo);
@@ -91,12 +95,11 @@ public static class LivrosEndpoint
             return Results.NoContent();
         });
 
+        // deletando um livro a partir do código
         group.MapDelete("/{codigo}", async (int codigo, BibliotecaContext dbContext) =>
         {
             await dbContext.livros.Where(l => l.Codigo == codigo).ExecuteDeleteAsync();
             return Results.NoContent();
         });
     }
-
-
 }
