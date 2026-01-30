@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, cloneElement, isValidElement } from "react";
+import { useState } from "react";
 import "./style.css";
 import Header from "../Header";
 import SideBar from "../SideBar";
@@ -10,8 +10,6 @@ interface LayoutProps {
 
 export default function LayoutWrapper({ children }: LayoutProps) {
   const [isSidebarOpen, setIsSetbarOpen] = useState(true);
-  const [searchTerm, setSearchTerm] = useState(""); // Novo estado de busca
-
   const onToggleMenu = () => {
     setIsSetbarOpen(!isSidebarOpen);
   };
@@ -20,16 +18,9 @@ export default function LayoutWrapper({ children }: LayoutProps) {
     <div className="layout-wrapper">
       <SideBar isOpen={isSidebarOpen} />
       <div className="wrapper">
-        {/* Passamos a função de busca para o Header */}
-        <Header onToggleMenu={onToggleMenu} onSearch={setSearchTerm} />
-
+        <Header onToggleMenu={onToggleMenu}/>
         <main>
-          {/* Injetamos a prop searchTerm em todos os componentes filhos 
-            que são elementos React válidos.
-          */}
-          {isValidElement(children) 
-            ? cloneElement(children as React.ReactElement<any>, { searchTerm }) 
-            : children}
+          {children}
         </main>
       </div>
     </div>

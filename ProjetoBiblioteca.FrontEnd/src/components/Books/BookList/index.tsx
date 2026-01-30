@@ -2,15 +2,7 @@ import "../style.css";
 import { useEffect, useState } from "react";
 import BookCard from "../BookCard";
 import { useSearch } from "../../context/SearchContext";
-
-interface Livro {
-  codigo: number;
-  titulo: string;
-  autor: string;
-  area: string;
-  ano: number;
-  editora: string;
-}
+import type Livro from "../../../interfaces/Livro";
 
 export default function BookList() {
   // 1. Estado para armazenar os livros que vêm da API
@@ -21,7 +13,7 @@ export default function BookList() {
   // 2. Função para buscar os dados
   const fetchLivros = async () => {
     try {
-      const response = await fetch("http://localhost:5002/livros");
+      const response = await fetch("http://localhost:5002/api/livros");
       const data: Livro[] = await response.json();
       setLivros(data);
     } catch (error) {

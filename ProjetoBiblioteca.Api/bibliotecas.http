@@ -1,12 +1,12 @@
-GET http://localhost:5002/livros
+GET http://localhost:5002/api/livros
 
 ###
 
-GET http://localhost:5002/livros/1
+GET http://localhost:5002/api/livros/3
 
 ###
 
-POST http://localhost:5002/livros
+POST http://localhost:5002/api/livros
 Content-Type: application/json
 
 {
