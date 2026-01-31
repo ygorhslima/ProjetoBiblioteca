@@ -8,6 +8,8 @@ namespace ProjetoBiblioteca.Api.Endpoints;
 
 public static class LivrosEndpoint
 {
+    
+
     const string GetLivrosEndpointName = "GetGames";
     public static void MapLivrosEndpoints(this WebApplication app)
     {
@@ -86,7 +88,7 @@ public static class LivrosEndpoint
 
             existingLivro.Titulo = updatedLivro.Titulo;
             existingLivro.Autor = updatedLivro.Autor;
-            existingLivro.Area.Id = updatedLivro.AreaId;
+            existingLivro.AreaId = updatedLivro.AreaId;
             existingLivro.Ano = updatedLivro.Ano;
             existingLivro.Editora = updatedLivro.Editora;
             existingLivro.ImagemUrl = updatedLivro.ImagemUrl;

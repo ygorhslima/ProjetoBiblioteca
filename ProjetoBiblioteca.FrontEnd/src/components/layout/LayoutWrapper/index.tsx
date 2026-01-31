@@ -3,10 +3,8 @@ import { useState } from "react";
 import "./style.css";
 import Header from "../Header";
 import SideBar from "../SideBar";
+import type LayoutProps from "../../../interfaces/LayoutProps";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
 
 export default function LayoutWrapper({ children }: LayoutProps) {
   const [isSidebarOpen, setIsSetbarOpen] = useState(true);

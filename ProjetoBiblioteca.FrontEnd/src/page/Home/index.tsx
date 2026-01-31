@@ -5,9 +5,7 @@ import SearchBar from "../../components/UI/SearchBar/SearchBar";
 import './style.css'
 
 export default function Home() {
-
   const [searchTerm, setSearchTerm] = useState("");
-
   return (
     <>
       <div className="banner-home">

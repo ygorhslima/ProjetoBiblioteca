@@ -1,9 +1,6 @@
 import './style.css';
 import ButtonHamburger from '../../UI/ButtonHambuguer';
-
-interface HeaderProps {
-    onToggleMenu: () => void;
-}
+import type HeaderProps from '../../../interfaces/HeaderProps';
 
 export default function Header({ onToggleMenu }: HeaderProps) {
     return (

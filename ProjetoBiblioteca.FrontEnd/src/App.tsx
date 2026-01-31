@@ -17,6 +17,10 @@ function App() {
                 element={<Home />}
               ></Route>
               <Route
+                path="/ProjetoBiblioteca/livros/:id"
+                element={<Home />}
+              ></Route>
+              <Route
                 path="/ProjetoBiblioteca/addlivros"
                 element={<AddBooks />}
               ></Route>

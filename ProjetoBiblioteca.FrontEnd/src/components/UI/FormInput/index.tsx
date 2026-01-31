@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import "../style.css";
+import "./style.css";
 import type Area from "../../../interfaces/Area";
 
 export default function FormInput() {

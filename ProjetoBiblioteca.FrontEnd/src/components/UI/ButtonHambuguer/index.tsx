@@ -1,9 +1,7 @@
 import "./style.css";
 import { MenuSquare } from "lucide-react";
+import type ButtonProps from "../../../interfaces/ButtonProps";
 
-interface ButtonProps{
-  onClick:() => void;
-}
 
 const ButtonHamburger = ({onClick}:ButtonProps) => {
   return (
