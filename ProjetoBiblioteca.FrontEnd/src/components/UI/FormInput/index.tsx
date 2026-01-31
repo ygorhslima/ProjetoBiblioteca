@@ -55,56 +55,58 @@ export default function FormInput() {
   }, []);
 
   return (
-    <div className="container-formInput">
-      <label>Título</label>
-      <input
-        type="text"
-        className="input-add-books"
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
-      />
+    <div className="">
+      <div className="container-formInput">
+        <label>Título</label>
+        <input
+          type="text"
+          className="input-add-books"
+          value={titulo}
+          onChange={(e) => setTitulo(e.target.value)}
+        />
 
-      <label>Autor</label>
-      <input
-        type="text"
-        className="input-add-books"
-        value={autor}
-        onChange={(e) => setAutor(e.target.value)}
-      />
+        <label>Autor</label>
+        <input
+          type="text"
+          className="input-add-books"
+          value={autor}
+          onChange={(e) => setAutor(e.target.value)}
+        />
 
-      <label>Ano</label>
-      <input
-        type="text"
-        className="input-add-books"
-        value={ano}
-        onChange={(e) => setAno(e.target.value)}
-      />
+        <label>Ano</label>
+        <input
+          type="text"
+          className="input-add-books"
+          value={ano}
+          onChange={(e) => setAno(e.target.value)}
+        />
 
-      <label>Editora</label>
-      <input
-        type="text"
-        className="input-add-books"
-        value={editora}
-        onChange={(e) => setEditora(e.target.value)}
-      />
+        <label>Editora</label>
+        <input
+          type="text"
+          className="input-add-books"
+          value={editora}
+          onChange={(e) => setEditora(e.target.value)}
+        />
 
-      <label>Área</label>
-      <select
-        className="input-add-books"
-        value={areaId}
-        onChange={(e) => setAreaId(Number(e.target.value))}
-      >
-        <option value={0}>Selecione uma área</option>
-        {areas.map((el) => (
-          <option key={el.id} value={el.id}>
-            {el.nome}
-          </option>
-        ))}
-      </select>
+        <label>Área</label>
+        <select
+          className="input-add-books"
+          value={areaId}
+          onChange={(e) => setAreaId(Number(e.target.value))}
+        >
+          <option value={0}>Selecione uma área</option>
+          {areas.map((el) => (
+            <option key={el.id} value={el.id}>
+              {el.nome}
+            </option>
+          ))}
+        </select>
 
-      <button className="btn_addLivro" onClick={adicionarLivro}>
-        Adicionar Livro
-      </button>
+        <button className="btn_addLivro" onClick={adicionarLivro}>
+          Adicionar Livro
+        </button>
+      </div>
     </div>
   );
 }
