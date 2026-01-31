@@ -23,7 +23,7 @@ export default function BookCard(props: BookCardProps) {
             <button onClick={props.onDelete}>
               <Trash color="blue" />
             </button>
-            <button>
+            <button onClick={props.onPut}>
               <Pen color="blue"/>
             </button>
           </div>

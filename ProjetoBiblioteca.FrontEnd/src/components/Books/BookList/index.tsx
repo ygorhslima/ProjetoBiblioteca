@@ -5,9 +5,11 @@ import BookCard from "../BookCard";
 import { useSearch } from "../../context/SearchContext";
 import type Livro from "../../../interfaces/Livro";
 import type Area from "../../../interfaces/Area";
+import FormInputEditLivro from "../../UI/FormInputEditLivro";
 
 export default function BookList() {
   // --- ESTADOS ---
+  const [livroSelecionado, setlivroSelecionado] = useState<Livro | null>(null);
   // Armazena a lista completa de livros vinda da API
   const [livros, setLivros] = useState<Livro[]>([]);
   // Controla a exibição do texto "Carregando..." enquanto os dados não chegam
@@ -66,28 +68,31 @@ export default function BookList() {
     return matchesSearch;
   });
 
-  const onDelete = async(codigo: number) => {
-    try{
-      const response = await fetch(`http://localhost:5002/api/livros/${codigo}`, {
-        method: "DELETE",
-        headers:{
-          "Content-Type":"application/json",
-          "Accept":"application/json",
-        }
-      });
+  const onDelete = async (codigo: number) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5002/api/livros/${codigo}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        },
+      );
 
       if (response.ok) {
         setLivros((prevLivros) =>
-          prevLivros.filter((livro) => livro.codigo !== codigo)
+          prevLivros.filter((livro) => livro.codigo !== codigo),
         );
       }
-    }catch(error){
+    } catch (error) {
       console.error("Erro ao deletar livro", error);
     }
   };
-  
-  const onPut = async(codigo:number) => {
-    
+
+  const onPut = async (livro: Livro) => {
+    setlivroSelecionado(livro);
   };
 
   // --- CICLO DE VIDA ---
@@ -101,25 +106,40 @@ export default function BookList() {
   if (loading) return <p>Carregando livros...</p>;
 
   return (
-    <div className="book-list">
-      {/* Verifica se existem livros após os filtros */}
-      {livrosFiltrados.length > 0 ? (
-        livrosFiltrados.map((el) => (
-          <BookCard
-            key={el.codigo} // Chave única para performance do React
-            codigo={el.codigo}
-            titulo={el.titulo}
-            autor={el.autor}
-            area={el.area}
-            ano={el.ano}
-            editora={el.editora}
-            onDelete={()=>onDelete(el.codigo)}
-            onPut={()=>onPut(el.codigo)}
-          />
-        ))
-      ) : (
-        <p style={{ textAlign: "center" }}>Nenhum livro encontrado.</p>
+    <>
+      {livroSelecionado && (
+        <div className="modal-overlay">
+          <div>
+            <FormInputEditLivro
+              livro={livroSelecionado}
+              onClose={() => {
+                setlivroSelecionado(null);
+                fetchLivros();
+              }}
+            />
+          </div>
+        </div>
       )}
-    </div>
+      <div className="book-list">
+        {/* Verifica se existem livros após os filtros */}
+        {livrosFiltrados.length > 0 ? (
+          livrosFiltrados.map((el) => (
+            <BookCard
+              key={el.codigo}
+              codigo={el.codigo}
+              titulo={el.titulo}
+              autor={el.autor}
+              area={el.area}
+              ano={el.ano}
+              editora={el.editora}
+              onDelete={() => onDelete(el.codigo)}
+              onPut={() => onPut(el)}
+            />
+          ))
+        ) : (
+          <p style={{ textAlign: "center" }}>Nenhum livro encontrado.</p>
+        )}
+      </div>
+    </>
   );
 }

@@ -2,60 +2,81 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import type Area from "../../../interfaces/Area";
+import type FormInputEditLivroProps from "../../../interfaces/FormInputEditLivroProps";
+import { CircleX } from "lucide-react";
 
-export default function FormInput() {
+export default function FormInputEditLivro({
+  livro,
+  onClose
+}: FormInputEditLivroProps) {
+  const [titulo, setTitulo] = useState(livro.titulo);
+  const [autor, setAutor] = useState(livro.autor);
+  const [ano, setAno] = useState(livro.ano);
+  const [editora, setEditora] = useState(livro.editora);
+  const [areaId, setAreaId] = useState(livro.area);
   const [areas, setAreas] = useState<Area[]>([]);
-  const [titulo, setTitulo] = useState("");
-  const [autor, setAutor] = useState("");
-  const [ano, setAno] = useState("");
-  const [editora, setEditora] = useState("");
-  const [areaId, setAreaId] = useState(0);
 
   const buscarAreasLivros = async () => {
     try {
       const response = await fetch("http://localhost:5002/api/area");
+
       if (!response.ok) throw new Error("Erro ao buscar dados");
+
       const data = await response.json();
+
       setAreas(data);
     } catch (error) {
       console.error("Erro ao buscar áreas:", error);
     }
   };
 
-  const adicionarLivro = async () => {
+  const EditarLivro = async () => {
     try {
-      const response = await fetch("http://localhost:5002/api/livros", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          titulo,
-          autor,
-          ano: Number(ano),
-          editora,
-          areaId: Number(areaId),
-          imagemUrl: "",
-        }),
-      });
+      // Note a inclusão do código na URL
+      const response = await fetch(
+        `http://localhost:5002/api/livros/${livro.codigo}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            titulo,
+            autor,
+            ano: Number(ano),
+            editora,
+            areaId: Number(areaId),
+            imagemUrl: "",
+          }),
+        },
+      );
+
       if (response.ok) {
-        window.alert("Livro adicionado com sucesso");
-        // Limpar campos após sucesso
-        setTitulo("");
-        setAutor("");
-        setAno("");
-        setEditora("");
-        setAreaId(0);
+        window.alert("Livro Editado!");
+        onClose(); // Fecha o modal
       }
     } catch (error) {
-      console.error("Erro ao adicionar livro:", error);
+      console.error("Erro ao editar:", error);
     }
   };
 
+  // Importante: Atualiza os campos se o "livro" recebido mudar
   useEffect(() => {
+    setTitulo(livro.titulo);
+    setAutor(livro.autor);
+    setAno(livro.ano);
+    setEditora(livro.editora);
     buscarAreasLivros();
-  }, []);
+  }, [livro]);
 
   return (
     <div className="container-formInput">
+      <div>
+        <button
+          onClick={() => onClose()}
+          className="btn-close-modal"
+        >
+          <CircleX/>
+        </button>
+      </div>
       <label>Título</label>
       <input
         type="text"
@@ -77,7 +98,7 @@ export default function FormInput() {
         type="text"
         className="input-add-books"
         value={ano}
-        onChange={(e) => setAno(e.target.value)}
+        onChange={(e) => setAno(Number(e.target.value))}
       />
 
       <label>Editora</label>
@@ -92,7 +113,7 @@ export default function FormInput() {
       <select
         className="input-add-books"
         value={areaId}
-        onChange={(e) => setAreaId(Number(e.target.value))}
+        onChange={(e) => setAreaId(e.target.value)}
       >
         <option value={0}>Selecione uma área</option>
         {areas.map((el) => (
@@ -102,8 +123,8 @@ export default function FormInput() {
         ))}
       </select>
 
-      <button className="btn_addLivro" onClick={adicionarLivro}>
-        Adicionar Livro
+      <button className="btn_addLivro" onClick={EditarLivro}>
+        Editar Livro
       </button>
     </div>
   );

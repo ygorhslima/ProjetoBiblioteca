@@ -10,7 +10,7 @@ public static class LivrosEndpoint
 {
     
 
-    const string GetLivrosEndpointName = "GetGames";
+    const string GetLivrosEndpointName = "GetLivros";
     public static void MapLivrosEndpoints(this WebApplication app)
     {
         var api = app.MapGroup("/api");
@@ -38,13 +38,15 @@ public static class LivrosEndpoint
         // obtendo somente o livro que tiver o código que o usuário procura
         api.MapGet("/livros/{codigo}", async (int codigo, BibliotecaContext dbContext) =>
         {
-            var livro = await dbContext.livros.FindAsync(codigo);
+            var livro = await dbContext.livros
+            .Include(l=>l.Area)
+            .FirstOrDefaultAsync(l=>l.Codigo == codigo);
             return livro is null ? Results.NotFound() : Results.Ok(
                 new LivrosDetailsDto(
                     livro.Codigo,
                     livro.Titulo,
                     livro.Autor,
-                    livro.Area.Id,
+                    livro.Area != null ? livro.Area.Id : 0,
                     livro.Ano,
                     livro.Editora,
                     livro.ImagemUrl
