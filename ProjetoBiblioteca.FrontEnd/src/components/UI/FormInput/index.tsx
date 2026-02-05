@@ -1,61 +1,50 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { bookService } from "../../../services/BookService";
+import { useLibrary } from "../../../context/LibraryContext"; // 1. Importe o hook
 import "./style.css";
-import type Area from "../../../interfaces/Area";
 
 export default function FormInput() {
-  const [areas, setAreas] = useState<Area[]>([]);
+  // 2. Acesse as áreas que o LibraryContext buscou para você
+  const { areas } = useLibrary();
+
   const [titulo, setTitulo] = useState("");
   const [autor, setAutor] = useState("");
   const [ano, setAno] = useState("");
   const [editora, setEditora] = useState("");
   const [areaId, setAreaId] = useState(0);
 
-  const buscarAreasLivros = async () => {
-    try {
-      const response = await fetch("http://localhost:5002/api/area");
-      if (!response.ok) throw new Error("Erro ao buscar dados");
-      const data = await response.json();
-      setAreas(data);
-    } catch (error) {
-      console.error("Erro ao buscar áreas:", error);
-    }
-  };
-
   const adicionarLivro = async () => {
-    try {
-      const response = await fetch("http://localhost:5002/api/livros", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          titulo,
-          autor,
-          ano: Number(ano),
-          editora,
-          areaId: Number(areaId),
-          imagemUrl: "",
-        }),
-      });
-      if (response.ok) {
-        window.alert("Livro adicionado com sucesso");
-        // Limpar campos após sucesso
-        setTitulo("");
-        setAutor("");
-        setAno("");
-        setEditora("");
-        setAreaId(0);
-      }
-    } catch (error) {
-      console.error("Erro ao adicionar livro:", error);
+    // Adicione uma validação simples para não enviar areaId 0
+    if (areaId === 0) {
+      alert("Por favor, selecione uma área.");
+      return;
+    }
+
+    const novoLivro = {
+      titulo,
+      autor,
+      ano: Number(ano),
+      editora,
+      areaId: Number(areaId),
+      imagemUrl: "", // Não esqueça de enviar os campos que o backend espera
+    };
+
+    const sucesso = await bookService.create(novoLivro);
+
+    if (sucesso) {
+      alert("Livro adicionado!");
+      // Limpe os campos aqui se desejar
+      setTitulo("");
+      setAutor("");
+      setAno("");
+      setEditora("");
+      setAreaId(0);
     }
   };
-
-  useEffect(() => {
-    buscarAreasLivros();
-  }, []);
 
   return (
-    <div className="">
+    <div>
       <div className="container-formInput">
         <label>Título</label>
         <input

@@ -41,6 +41,14 @@ export default function SideBar({ isOpen }: SideBarProps) {
           <div className="view-books">
             <Link to={"/ProjetoBiblioteca/addlivros"} className="link">Adicionar livros</Link>
           </div>
+
+          <div className="view-books">
+            <Link to={"/ProjetoBiblioteca/login"} className="link">Login</Link>
+          </div>
+
+          <div className="view-books">
+            <Link to={"/ProjetoBiblioteca/cadastro"} className="link">Cadastro</Link>
+          </div>
         </div>
     </>
   );

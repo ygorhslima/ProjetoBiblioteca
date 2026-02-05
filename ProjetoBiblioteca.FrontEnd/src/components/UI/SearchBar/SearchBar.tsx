@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import "./style.css";
-import { useSearch } from "../../context/SearchContext";
+import { useSearch } from "../../../context/SearchContext";
 
 const SearchBar = () => {
   const { setSearchTerm } = useSearch();
