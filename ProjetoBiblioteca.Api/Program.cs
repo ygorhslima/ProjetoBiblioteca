@@ -26,4 +26,5 @@ var app = builder.Build();
 app.UseCors(myAllowSpecificOrigins);
 app.MigrateDb();
 app.MapLivrosEndpoints();
+app.MapAreasEndpoints();
 app.Run();
