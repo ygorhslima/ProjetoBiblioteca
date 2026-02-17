@@ -7,6 +7,7 @@ import { SearchProvider } from "./context/SearchContext";
 import LoginUsuario from "./page/LoginUsuario";
 import CadastroUsuario from "./page/CadastroUsuario";
 import LibraryProvider from "./context/LibraryContext";
+import { PATHS } from "./constants";
 
 function App() {
   return (
@@ -16,24 +17,18 @@ function App() {
           <BrowserRouter>
             <LayoutWrapper>
               <Routes>
+                <Route path={`${PATHS.HOME}`} element={<Home />}></Route>
+                <Route path={`${PATHS.HOME}/:id`} element={<Home />}></Route>
                 <Route
-                  path="/ProjetoBiblioteca/livros"
-                  element={<Home />}
-                ></Route>
-                <Route
-                  path="/ProjetoBiblioteca/livros/:id"
-                  element={<Home />}
-                ></Route>
-                <Route
-                  path="/ProjetoBiblioteca/addlivros"
+                  path={`${PATHS.ADD_BOOKS}`}
                   element={<AddBooks />}
                 ></Route>
                 <Route
-                  path="/ProjetoBiblioteca/login/"
+                  path={`${PATHS.LOGIN}`}
                   element={<LoginUsuario />}
                 ></Route>
                 <Route
-                  path="/ProjetoBiblioteca/cadastro/"
+                  path={`${PATHS.REGISTER}`}
                   element={<CadastroUsuario />}
                 ></Route>
               </Routes>

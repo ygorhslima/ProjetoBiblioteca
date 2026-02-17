@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjetoBiblioteca.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracaoInicial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,6 +42,8 @@ namespace ProjetoBiblioteca.Api.Migrations
                     AreaId = table.Column<int>(type: "int", nullable: false),
                     Ano = table.Column<int>(type: "int", nullable: false),
                     Editora = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ImagemUrl = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>

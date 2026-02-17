@@ -11,8 +11,8 @@ using ProjetoBiblioteca.Api.Data;
 namespace ProjetoBiblioteca.Api.Migrations
 {
     [DbContext(typeof(BibliotecaContext))]
-    [Migration("20260128183524_AddImagemUrlToLivros")]
-    partial class AddImagemUrlToLivros
+    [Migration("20260217134919_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

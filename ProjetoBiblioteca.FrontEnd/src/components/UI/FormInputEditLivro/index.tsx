@@ -4,10 +4,11 @@ import "./style.css";
 import type Area from "../../../interfaces/Area";
 import type FormInputEditLivroProps from "../../../interfaces/FormInputEditLivroProps";
 import { CircleX } from "lucide-react";
+import { API_ENDPOINTS } from "../../../constants";
 
 export default function FormInputEditLivro({
   livro,
-  onClose
+  onClose,
 }: FormInputEditLivroProps) {
   const [titulo, setTitulo] = useState(livro.titulo);
   const [autor, setAutor] = useState(livro.autor);
@@ -18,7 +19,7 @@ export default function FormInputEditLivro({
 
   const buscarAreasLivros = async () => {
     try {
-      const response = await fetch("http://localhost:5002/api/area");
+      const response = await fetch(`${API_ENDPOINTS.AREAS}`);
 
       if (!response.ok) throw new Error("Erro ao buscar dados");
 
@@ -33,21 +34,18 @@ export default function FormInputEditLivro({
   const EditarLivro = async () => {
     try {
       // Note a inclusão do código na URL
-      const response = await fetch(
-        `http://localhost:5002/api/livros/${livro.codigo}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            titulo,
-            autor,
-            ano: Number(ano),
-            editora,
-            areaId: Number(areaId),
-            imagemUrl: "",
-          }),
-        },
-      );
+      const response = await fetch(`${API_ENDPOINTS.LIVROS}/${livro.codigo}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          titulo,
+          autor,
+          ano: Number(ano),
+          editora,
+          areaId: Number(areaId),
+          imagemUrl: "",
+        }),
+      });
 
       if (response.ok) {
         window.alert("Livro Editado!");
@@ -70,11 +68,8 @@ export default function FormInputEditLivro({
   return (
     <div className="container-formInput">
       <div>
-        <button
-          onClick={() => onClose()}
-          className="btn-close-modal"
-        >
-          <CircleX/>
+        <button onClick={() => onClose()} className="btn-close-modal">
+          <CircleX />
         </button>
       </div>
       <label>Título</label>

@@ -4,6 +4,7 @@ import type SideBarProps from "../../../interfaces/SideBarProps";
 import { useLibrary } from "../../../context/LibraryContext";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { PATHS } from "../../../constants";
 
 export default function SideBar({ isOpen }: SideBarProps) {
   const {areas} = useLibrary();
@@ -20,13 +21,13 @@ export default function SideBar({ isOpen }: SideBarProps) {
 
          {dropdown ? <div>
             <div className="view-books">
-              <Link to={`/ProjetoBiblioteca/livros`} className="link">
+              <Link to={`${PATHS.HOME}`} className="link">
                 Todos os livros
               </Link>
             </div>
             <div className="view-books">
               {areas.map((el)=>(
-                <Link key={el.id} to={`/ProjetoBiblioteca/livros/${el.id}`} className="link">
+                <Link key={el.id} to={`${PATHS.HOME}/${el.id}`} className="link">
                   {el.nome}
                 </Link>
               ))}
@@ -34,15 +35,15 @@ export default function SideBar({ isOpen }: SideBarProps) {
           </div>:<></>}
           
           <div className="view-books">
-            <Link to={"/ProjetoBiblioteca/addlivros"} className="link">Adicionar livros</Link>
+            <Link to={`${PATHS.ADD_BOOKS}`} className="link">Adicionar livros</Link>
           </div>
 
           <div className="view-books">
-            <Link to={"/ProjetoBiblioteca/login"} className="link">Login</Link>
+            <Link to={`${PATHS.LOGIN}`} className="link">Login</Link>
           </div>
 
           <div className="view-books">
-            <Link to={"/ProjetoBiblioteca/cadastro"} className="link">Cadastro</Link>
+            <Link to={`${PATHS.REGISTER}`} className="link">Cadastro</Link>
           </div>
         </div>
     </>
