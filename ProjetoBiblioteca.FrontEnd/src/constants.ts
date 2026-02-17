@@ -15,3 +15,7 @@ export const API_ENDPOINTS = {
   LIVROS: `${API_BASE_URL}/livros`,
   LIVRO_BY_ID: (id:any) => `${API_BASE_URL}/livros/${id}`,
 };
+
+export const ADMIN = {
+  DASHBOARD: `${BASE}/dashboard`
+}

@@ -7,7 +7,8 @@ import { SearchProvider } from "./context/SearchContext";
 import LoginUsuario from "./page/LoginUsuario";
 import CadastroUsuario from "./page/CadastroUsuario";
 import LibraryProvider from "./context/LibraryContext";
-import { PATHS } from "./constants";
+import { ADMIN, PATHS } from "./constants";
+import Dashboard from "./page/Dashboard";
 
 function App() {
   return (
@@ -19,18 +20,10 @@ function App() {
               <Routes>
                 <Route path={`${PATHS.HOME}`} element={<Home />}></Route>
                 <Route path={`${PATHS.HOME}/:id`} element={<Home />}></Route>
-                <Route
-                  path={`${PATHS.ADD_BOOKS}`}
-                  element={<AddBooks />}
-                ></Route>
-                <Route
-                  path={`${PATHS.LOGIN}`}
-                  element={<LoginUsuario />}
-                ></Route>
-                <Route
-                  path={`${PATHS.REGISTER}`}
-                  element={<CadastroUsuario />}
-                ></Route>
+                <Route path={`${PATHS.ADD_BOOKS}`} element={<AddBooks />}></Route>
+                <Route path={`${PATHS.LOGIN}`} element={<LoginUsuario />}></Route>
+                <Route path={`${PATHS.REGISTER}`} element={<CadastroUsuario />}></Route>
+                <Route path={`${ADMIN.DASHBOARD}`} element={<Dashboard/>} ></Route>
               </Routes>
             </LayoutWrapper>
           </BrowserRouter>
