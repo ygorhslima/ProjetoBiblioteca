@@ -3,7 +3,7 @@
 import { API_ENDPOINTS } from "../constants";
 
 export const bookService = {
-  getAll: () => fetch(`${API_ENDPOINTS.LIVROS}`).then((res) => res.json()),
+  getAll: () => fetch(`${API_ENDPOINTS.LIVROS.BASE}`).then((res) => res.json()),
 
   getAreas: () => fetch(`${API_ENDPOINTS.AREAS}`).then((res) => res.json()),
 

@@ -1,9 +1,7 @@
 import "../style.css";
-import type BookCardProps from "../../../interfaces/BookCardProps";
-import { Trash, Pen } from "lucide-react";
+import type BookCardProps from "./BookCardProps";
 
 export default function BookCard(props: BookCardProps) {
-  
 
   return (
     <div className="book-card">
@@ -18,14 +16,6 @@ export default function BookCard(props: BookCardProps) {
             <p>Area: {props.area}</p>
             <p>Ano: {props.ano}</p>
             <p>Editora: {props.editora}</p>
-          </div>
-          <div>
-            <button onClick={props.onDelete}>
-              <Trash color="blue" />
-            </button>
-            <button onClick={props.onPut}>
-              <Pen color="blue"/>
-            </button>
           </div>
         </div>
       </div>

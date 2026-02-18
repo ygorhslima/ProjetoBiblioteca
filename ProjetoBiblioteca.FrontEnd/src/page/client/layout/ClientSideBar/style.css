@@ -1,0 +1,100 @@
+:root {
+  --background-sidebar: #2d2d2d;
+  --sidebar-width: 260px;
+  --link-hover: #3d3d3d;
+  --accent-color: #3b82f6; /* Azul para destaques */
+}
+.div_dropdown{
+    display: flex;
+}
+
+h1{
+    text-align: center;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: var(--background-sidebar);
+    overflow-y: auto;
+    color: white;
+    padding: 50px 0;
+    transition: all 0.3s ease;
+    border-right: 1px solid #444;
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+/* Containers de grupos de links */
+.view-books, .add-books {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+/* Estilização dos Links */
+.sidebar .link {
+    text-decoration: none;
+    color: #b3b3b3; /* Cor cinza para itens não selecionados */
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.6s, color 0.4s;
+    display: flex;
+    align-items: start;
+}
+
+.sidebar .link:hover {
+    background-color: var(--link-hover);
+    color: white;
+}
+
+/* Divisores ou Títulos de Seção (Igual ao "CORE" e "ACTION" da imagem) */
+
+
+.sidebar.closed {
+    margin-left: calc(var(--sidebar-width) * -1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+select, option{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Cores e Fundo */
+    background-color: #2d2d2d;
+    color: #ffffff;
+    
+    /* Espaçamento e Borda */
+    padding: 10px 15px;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .sidebar{
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: auto;
+        top: 60px;
+    }
+    .view-books, .add-books{
+        align-items: center;
+        padding: 20px 0;
+    }
+    .sidebar .link{
+        width: 80%;
+        justify-content: center;
+        border-bottom: 1px solid #444;
+    }
+}

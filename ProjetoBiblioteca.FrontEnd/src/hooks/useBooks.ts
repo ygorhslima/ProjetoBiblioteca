@@ -11,13 +11,21 @@ const useBooks = (searchTerm: string, idCategoria?: string) => {
   const [areas, setAreas] = useState<Area[]>([]);
 
   const loadData = async () => {
-    const [livrosData, areasData] = await Promise.all([
-      bookService.getAll(),
-      bookService.getAreas(),
-    ]);
-    setLivros(livrosData);
-    setAreas(areasData);
-    setLoading(false);
+    try {
+      setLoading(true); // Garante que volta a carregar se houver reload
+      const [livrosData, areasData] = await Promise.all([
+        bookService.getAll(),
+        bookService.getAreas(),
+      ]);
+
+      setLivros(livrosData || []);
+      setAreas(areasData || []);
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+      // Aqui você poderia definir um estado de erro para mostrar ao usuário
+    } finally {
+      setLoading(false); // ISSO AQUI é o que tira o "Carregando..." da tela
+    }
   };
 
   useEffect(() => {
@@ -34,6 +42,7 @@ const useBooks = (searchTerm: string, idCategoria?: string) => {
     }
     return matchesSearch;
   });
+  
   return { livrosFiltrados, loading, reload: loadData, setLivros };
 };
 
