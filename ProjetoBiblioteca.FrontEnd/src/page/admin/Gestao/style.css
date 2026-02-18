@@ -1,0 +1,26 @@
+.gestao-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+span{
+    margin: 20px;
+}
+.pesquisa-tabela{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #221a60;
+    color: white;
+}
+.pesquisa-tabela div{
+    width: 100%;
+}
+select{
+    width: 24%;
+}

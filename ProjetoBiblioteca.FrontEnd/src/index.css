@@ -1,33 +1,33 @@
-:root{
-  --background-components:#FFFFFF;
-  --background-header: #262A2D;
-  --background-view-books:#d5dfdf;
-  --background-sidebar:#373D42;
-  --color-primary:#156EFD;
-  --color-primary-active:#61A0FE;
+:root {
+  --background-components: #ffffff;
+  --background-header: #262a2d;
+  --background-view-books: #d5dfdf;
+  --background-sidebar: #373d42;
+  --color-primary: #156efd;
+  --color-primary-active: #61a0fe;
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button{
+button {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-input{
+input {
   border: none;
   outline: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
