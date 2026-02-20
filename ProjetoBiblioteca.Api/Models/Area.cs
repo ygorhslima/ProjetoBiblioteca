@@ -7,7 +7,7 @@ namespace ProjetoBiblioteca.Api.Models
 {
     public class Area
     {
-        public int Id {get;set;}
-        public string Nome {get;set;}
+        public int Id { get; set; }
+        public string Nome { get; set; }
     }
 }

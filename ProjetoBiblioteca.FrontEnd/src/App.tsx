@@ -15,6 +15,8 @@ import { ROUTES } from "./constants";
 import Login from "./page/auth/Login";
 import Cadastro from "./page/auth/Cadastro";
 import Gestao from "./page/admin/Gestao";
+import GerenciarUsuarios from "./page/admin/GerenciarUsuarios";
+import RegistrarEmprestimos from "./page/admin/RegistrarEmprestimos";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
             <Route element={<AdminLayout />}>
               <Route path={ROUTES.ADMIN.DASHBOARD} element={<Dashboard />} />
               <Route path={ROUTES.ADMIN.GESTAO} element={<Gestao />} />
+              <Route path={ROUTES.ADMIN.USERS} element={<GerenciarUsuarios/>} />
+              <Route path={ROUTES.ADMIN.EMPRESTIMOS} element={<RegistrarEmprestimos/>} />
             </Route>
 
             {/* ROTA 404 - OPCIONAL */}

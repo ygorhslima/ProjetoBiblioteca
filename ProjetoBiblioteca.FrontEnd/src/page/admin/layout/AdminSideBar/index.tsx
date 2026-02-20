@@ -19,6 +19,14 @@ export default function AdminSideBar({ isOpen }: SideBarProps) {
         <Link to={ROUTES.ADMIN.GESTAO} className="link">Gestão de livros</Link>
       </div>
 
+      <div className="view-books">
+        <Link to={ROUTES.ADMIN.EMPRESTIMOS} className="link">Registrar Empréstimos</Link>
+      </div>
+
+      <div className="view-books">
+        <Link to={ROUTES.ADMIN.USERS} className="link">Gerenciar Usuários</Link>
+      </div>
+
       <div className="view-books" style={{ marginTop: 'auto' }}>
         <Link to={ROUTES.PUBLIC.HOME} className="link">Sair para o Site</Link>
       </div>

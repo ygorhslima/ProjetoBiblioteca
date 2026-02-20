@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import SearchBar from "../../../components/UI/SearchBar/SearchBar";
 import Tabela from "./components/Tabela";
 import "./style.css";
@@ -15,8 +16,13 @@ export default function Gestao() {
         <div>
           <SearchBar />
         </div>
+        <div>
+          <button className="btn-add-livro">
+            Adicionar Livro <Plus />
+          </button>
+        </div>
       </div>
-      <Tabela  />
+      <Tabela />
     </div>
   );
 }

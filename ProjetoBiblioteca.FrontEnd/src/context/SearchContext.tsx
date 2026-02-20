@@ -1,3 +1,4 @@
+
 import { createContext, useState, useContext, type ReactNode } from 'react';
 
 interface SearchContextType {

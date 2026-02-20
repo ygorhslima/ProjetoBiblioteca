@@ -7,14 +7,14 @@ const API_BASE_URL = "http://localhost:5002/api";
 // 2. Rotas de Navegação (Front-end)
 export const ROUTES = {
   PUBLIC: {
-    HOME: `${BASE_URL_APP}/livros`,
+    HOME: `${BASE_URL_APP}/home/livros`,
     LOGIN: `${BASE_URL_APP}/login`,
     REGISTER: `${BASE_URL_APP}/cadastro`,
   },
   ADMIN: {
     DASHBOARD: `${BASE_URL_APP}/admin/dashboard`,
     GESTAO: `${BASE_URL_APP}/admin/gestao`,
-    BOOKS: `${BASE_URL_APP}/admin/livros`,
+    EMPRESTIMOS: `${BASE_URL_APP}/admin/emprestimos`,
     USERS: `${BASE_URL_APP}/admin/usuarios`,
   }
 };
