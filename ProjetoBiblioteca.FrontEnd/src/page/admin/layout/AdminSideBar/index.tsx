@@ -2,9 +2,7 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../constants";
 import './style.css'
-interface SideBarProps {
-  isOpen: boolean;
-}
+import type SideBarProps from "../../../../interfaces/SideBarProps";
 
 export default function AdminSideBar({ isOpen }: SideBarProps) {
   return (

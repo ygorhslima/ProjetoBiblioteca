@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import type Area from "../../../interfaces/Area";
-import type FormInputEditLivroProps from "../../../interfaces/FormInputEditLivroProps";
+import type FormInputEditLivroProps from "./FormInputEditLivroProps";
 import { CircleX } from "lucide-react";
 import { API_ENDPOINTS } from "../../../constants";
 

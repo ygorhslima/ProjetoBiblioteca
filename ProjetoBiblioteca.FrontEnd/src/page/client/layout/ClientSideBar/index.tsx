@@ -6,10 +6,7 @@ import { useLibrary } from "../../../../context/LibraryContext";
 import { ROUTES } from "../../../../constants"; 
 import './style.css'
 // Note que movi a interface para cá para eliminar o arquivo extra em /interfaces
-interface SideBarProps {
-  isOpen: boolean;
-}
-
+import type SideBarProps from "../../../../interfaces/SideBarProps";
 export default function ClientSideBar({ isOpen }: SideBarProps) {
   const { areas } = useLibrary();
   const [dropdown, setDropdown] = useState(false);
