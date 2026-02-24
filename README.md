@@ -1,60 +1,103 @@
-# 📚 ProjetoBiblioteca
+# ProjetoBiblioteca
 
-Uma aplicação full-stack para gestão de bibliotecas, desenvolvida para demonstrar a integração entre um backend robusto em **C#** utilizando o **ASP.NET** e um frontend dinâmico em **React**.
+# 📚 Sistema de Gestão de Biblioteca (SGA)
 
-## 🚀 Sobre o Projeto
+## 📝 Sobre o Projeto
 
-O **ProjetoBiblioteca** permite o controle total de um acervo bibliotecário, desde o cadastro de livros até o gerenciamento de empréstimos para usuários. O projeto foi construído seguindo boas práticas de desenvolvimento e organizado.
+ o **ProjetoBiblioteca** é uma plataforma desenvolvida para facilitar a organização de acervos bibliográficos.  É uma aplicação full-stack para gestão de bibliotecas, desenvolvida para demonstrar a integração entre um backend **C#** utilizando o **ASP.NET** e um frontend dinâmico em **React**.
+ 
+---
+
+## como o projeto é dividido
+
+a aplicação web é dividido em três grandes áreas
+- **client**:  responsável por mostrar a aplicação somente para os leitores da biblioteca, onde é possível visualizar os livros no catálogo de livros, ver livros a partir de áreas específicas e ver detalhes sobre o livro ao clicar em um card de livro
+- **Admin**: área adaptado para os administradores com recursos exclusivos, com área de Visão geral (dashboard), Gestão de Livros (CRUD), Registrar empréstimos e Gerenciar Usuários 
+- **Auth**: área voltado a authenticação de usuários e administradores dentro do sistema
+## ✨ Funcionalidades
+
+- **Gestão de Acervo:** CRUD completo (Criação, Leitura, Atualização e Deleção) de livros.
+- **Navegação Dinâmica:** Sidebar responsiva com carregamento de categorias (Áreas) em tempo real.
+- **Busca Inteligente:** Filtro de pesquisa global implementado com `SearchContext`.
+- **Autenticação:** Fluxos de Login e Cadastro de usuários preparados para integração.
+- **Modais de Edição:** Interface intuitiva para alteração de dados sem troca de página.
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias Utilizadas
 
-### **Backend**
+- **Frontend:** React.js com TypeScript.
+-  **Roteamento:** React Router DOM (com padrão de constantes centralizadas).
+- **Ícones:** Lucide React.
+- **Estilização:** CSS3 puro para layouts customizados.
 
-- **Linguagem:** C# .NET
-- **Framework:** ASP.NET Core Web API
-- **Banco de Dados:** MySQL
-- **ORM:** Entity Framework Core
-### **Frontend**
+- **Backend**: C# com ASP.NET Minimal API
+- **Entity Framework Core**: ORM próprio do ASP.NET responsável por conectar o banco de dados com o C#, e trabalhar com comandos SQL dentro do C#
 
-- **Linguagem:** TypeScript
-- **Biblioteca:** React.js
-- **Gerenciamento de Estado:** Context API / Hooks
-- **Consumo de API:** fetch
+# Backend (C-sharp)
 
-## 🏗️ Arquitetura
+## áreas do backend
 
-O projeto está dividido em duas partes principais:
+- Data: parte da aplicação focado em 
+	- **Criar ou atualizar as tabelas automaticamente** assim que o projeto inicia.
+	- Configura contexto do banco de dados
 
-1. **`/ProjetoBiblioteca.Api`**: Contém toda a lógica de negócio, persistência de dados e regras de autenticação.
-2. **`/ProjetoBiblioteca.FrontEnd`**: Interface de usuário responsiva e intuitiva que consome os serviços da API.
+- **Dtos**: Parte que modelam dados imutável (os chamados DTOs) que serão usados para modelar instanciação de objetos para Criar, ler, Atualizar e Deletar dados (CRUD) 
+- **Endpoints**: são as rotas da aplicação, dos livros, das áreas, dos usuários... 
+- **Mapping**: são os retornos dos dados do CRUD, para simplificar os arquivos dos endpoints, eu separei para que o código ficasse legível e organizado
+- **Migrations**: são os arquivos de código que gerenciam as atualizações da API e banco de dados, é o que interliga a aplicação e o banco de dados de fato
+- services: são as lógicas propriamente dito, é o que vai tratar as requisições e respostas da API de acordo com cada rota (endpoint)
+- **Models**: são as classes que serão usados como Modelos para as tabelas do banco de dados 
+- arquivo **program.cs**: é o que vai unir tudo no arquivo principal, vai fazer a criação do build da aplicação web, definir permissões de políticas CORS, adicionar Validações, conectar o banco de dados com a api, mapear os endpoints e rodar a aplicação
 
----
+# Models
+
+
+![[Pasted image 20260219134040.png]]
+# Frontend
+## Área principal (Usuários)
+![[Pasted image 20260219134446.png]]
+## Login
+
+![[Pasted image 20260219134543.png]]
+
+## Cadastro
+
+![[Pasted image 20260219134613.png]]
+
+## Área ADMIN
+
+### Dashboard
+
+![[Pasted image 20260219135457.png]]
+
+paǵina de dashboard que mostra todas as informações necessárias 
+### Gestão de Livros (CRUD)
+
+![[Pasted image 20260219140217.png]]
+
 
 ## ⚙️ Como Executar o Projeto
 
 ### Pré-requisitos
 
-- [.NET SDK 8.0](https://dotnet.microsoft.com/download)
+- [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
 - [Node.js](https://nodejs.org/) (versão LTS)
 - Um gerenciador de banco de dados
 ### 1. Configurando o Backend
 
 1. Navegue até a pasta do servidor:
-    
-    Bash
-    
-    ```
+
+    ```bash
     cd ProjetoBiblioteca.Api
     ```
     
-1. Atualize a string de conexão no arquivo `appsettings.json` (se necessário).
+2. Atualize a string de conexão no arquivo `appsettings.json` (se necessário).
 	- Meu exemplo:
 		```json
-		"ConnectionStrings": {
-				"Biblioteca":"Server=localhost; Port=3306; Database=Biblioteca; Uid=root; Pwd=123;"
-				}
+	"ConnectionStrings": {
+		"Biblioteca":"Server=localhost; Port=3306; Database=Biblioteca; Uid=root; Pwd=123;"
+	}
 		```
     
 3. Execute as migrações para criar o banco de dados:
@@ -69,7 +112,7 @@ O projeto está dividido em duas partes principais:
     dotnet run
     ```
     
-    > A API estará disponível em: `https://localhost:5001` (ou na porta configurada).
+A API estará disponível em: `https://localhost:5001` (ou na porta configurada).
     
 
 ### 2. Configurando o Frontend
@@ -91,39 +134,9 @@ O projeto está dividido em duas partes principais:
     npm run dev
     ```
     
-    > O app estará disponível em: `http://localhost:5173`.
+> O app estará disponível em: `http://localhost:5173`.
     
 
 ---
 
-## 📋 Endpoints Principais (API)
 
-| **Método** | **Endpoint**      | **Descrição**                         |
-| ---------- | ----------------- | ------------------------------------- |
-| **GET**    | `/api/livros`     | Lista todos os livros                 |
-| **POST**   | `/api/livros`     | Cadastra um novo livro (Requer Admin) |
-| **GET**    | `/api/authors`    | Lista todos os autores                |
-| **POST**   | `/api/auth/login` | Realiza login e retorna o Token JWT   |
-|            |                   |                                       |
-
----
-
-
----
-
-## ✒️ Autor
-
-- **Seu Nome** - [Seu GitHub](https://www.google.com/search?q=https://github.com/seu-usuario)
-    
-- **LinkedIn:** [Seu LinkedIn](https://www.google.com/search?q=https://linkedin.com/in/seu-perfil)
-    
-
----
-
-### Dica para o GitHub:
-
-Para deixar seu README ainda mais profissional, você pode tirar um **print** da tela principal do seu app e colocar logo abaixo do título usando:
-
-`![Screenshot do Projeto](./pasta-da-imagem/screenshot.png)`
-
-**Gostaria que eu detalhasse mais a seção de "Instalação" ou que eu criasse um tópico específico sobre a segurança com JWT?**
