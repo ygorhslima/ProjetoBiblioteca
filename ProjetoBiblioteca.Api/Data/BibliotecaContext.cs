@@ -11,8 +11,8 @@ namespace ProjetoBiblioteca.Api.Data
     {
         public DbSet<Livro> livros => Set<Livro>();
         public DbSet<Area> areas => Set<Area>();
-        public DbSet<Usuarios> usuarios => Set<Usuarios>();
-        public DbSet<Emprestimos> emprestimos => Set<Emprestimos>();
+        public DbSet<Usuario> usuarios => Set<Usuario>();
+        public DbSet<Emprestimo> emprestimos => Set<Emprestimo>();
         
     }
 }

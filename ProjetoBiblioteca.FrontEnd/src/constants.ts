@@ -25,7 +25,9 @@ export const API_ENDPOINTS = {
     LOGIN: `${API_BASE_URL}/auth/login`,
     REGISTER: `${API_BASE_URL}/auth/register`,
   },
-  AREAS: `${API_BASE_URL}/area`,
+  AREAS: `${API_BASE_URL}/areas`,
+  EMPRESTIMOS: `${API_BASE_URL}/emprestimos`,
+  USUARIOS: `${API_BASE_URL}/usuarios`,
   LIVROS: {
     BASE: `${API_BASE_URL}/livros`,
     BY_ID: (id: string | number) => `${API_BASE_URL}/livros/${id}`,

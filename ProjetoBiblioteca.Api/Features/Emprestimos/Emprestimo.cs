@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoBiblioteca.Api.Models;
 
-public class Emprestimos
+public class Emprestimo
 {
     [Key]
     public int Id { get; set; }
@@ -13,7 +13,7 @@ public class Emprestimos
     public int UsuariosId { get; set; }
 
     [ForeignKey("UsuarioId")]
-    public Usuarios usuarios;
+    public Usuario usuarios;
 
     [Required]
     public int LivrosId { get; set; }

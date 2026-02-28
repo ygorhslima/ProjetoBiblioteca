@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoBiblioteca.Api.Models;
 
-public class Usuarios
+public class Usuario
 {
     [Key]
     public int Id { get; set; }
@@ -14,10 +14,10 @@ public class Usuarios
 
     [Required]
     public string Email { get; set; }
-    
+
     [Required]
     public string Cpf { get; set; }
-    
+
     [Required]
     public string Telefone { get; set; }
 

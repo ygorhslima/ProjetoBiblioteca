@@ -10,8 +10,6 @@ namespace ProjetoBiblioteca.Api.Endpoints;
 
 public static class LivrosEndpoint
 {
-
-
     const string GetLivrosEndpointName = "GetLivros";
     public static void MapLivrosEndpoints(this WebApplication app)
     {
