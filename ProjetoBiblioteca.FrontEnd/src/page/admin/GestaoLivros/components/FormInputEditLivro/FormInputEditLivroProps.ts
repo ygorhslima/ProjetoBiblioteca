@@ -1,4 +1,4 @@
-import type Livro from "../../../interfaces/Livro";
+import type Livro from "../../../../../interfaces/Livro";
 
 export default interface FormInputEditLivroProps{
     livro:Livro;

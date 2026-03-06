@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
 import "./style.css";
-import { useSearch } from "../../../context/SearchContext";
+import { useSearch } from "../../../../../context/SearchContext";
 
-const SearchBar = () => {
+const SearchBarLivro = () => {
   const { setSearchTerm } = useSearch();
 
   return (
@@ -10,7 +10,7 @@ const SearchBar = () => {
       <input
         type="text"
         className="search-book"
-        placeholder="Pesquise um livro..."
+        placeholder="Pesquise..."
         onChange={(e) => setSearchTerm(e.target.value)}
         required
       />
@@ -21,4 +21,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarLivro;

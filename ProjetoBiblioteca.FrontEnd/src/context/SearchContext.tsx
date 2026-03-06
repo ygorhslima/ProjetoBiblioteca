@@ -9,6 +9,7 @@ interface SearchContextType {
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 export function SearchProvider({ children }: { children: ReactNode }) {
+  // termo que eu quero procurar, seja livro ou usuário
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>

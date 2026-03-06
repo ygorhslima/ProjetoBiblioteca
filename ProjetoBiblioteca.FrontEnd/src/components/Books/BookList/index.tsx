@@ -8,7 +8,7 @@ const BookList = () => {
   const { searchTerm } = useSearch();
   const { id } = useParams();
 
-  const { livrosFiltrados, loading, reload, setLivros } = useBooks(
+  const { livrosFiltrados, loading } = useBooks(
     searchTerm,
     id,
   );

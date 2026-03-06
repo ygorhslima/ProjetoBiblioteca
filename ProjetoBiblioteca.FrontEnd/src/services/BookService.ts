@@ -3,12 +3,16 @@
 import { API_ENDPOINTS } from "../constants";
 
 export const bookService = {
-  getAll: () => fetch(`${API_ENDPOINTS.LIVROS.BASE}`).then((res) => res.json()),
+  getAll: () => fetch(`${API_ENDPOINTS.LIVROS}`).then((res) => res.json()),
 
   getAreas: () => fetch(`${API_ENDPOINTS.AREAS}`).then((res) => res.json()),
 
   delete: (codigo: number) =>
-    fetch(`${API_ENDPOINTS.LIVROS}/${codigo}`, { method: "DELETE" }),
+    fetch(`${API_ENDPOINTS.LIVROS}/${codigo}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(codigo),
+    }).then((res) => res.ok),
 
   create: (novoLivro: any) =>
     fetch(`${API_ENDPOINTS.LIVROS}`, {
@@ -17,10 +21,14 @@ export const bookService = {
       body: JSON.stringify(novoLivro),
     }).then((res) => res.ok),
 
-  update: (codigo: number, livroAtualizado: any) =>
-    fetch(`${API_ENDPOINTS.LIVROS}/${codigo}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(livroAtualizado),
-    }),
+  update: (codigo: number, livroAtualizado: any) =>{
+    console.log("URL sendo chamada: ", API_ENDPOINTS.LIVROS);
+    console.log("Código recebido: ", codigo);
+
+    return fetch(`${API_ENDPOINTS.LIVROS}/${codigo}`,{
+      method:"PUT",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(livroAtualizado)
+    });
+  }
 };

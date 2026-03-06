@@ -1,29 +1,7 @@
+GET http://localhost:5002/api/areas
+###
 GET http://localhost:5002/api/livros
-
 ###
-
-GET http://localhost:5002/api/livros/3
-
+GET http://localhost:5002/api/emprestimos
 ###
-
-POST http://localhost:5002/api/livros
-Content-Type: application/json
-
-{
-  "titulo": "Homem Aranha",
-  "autor": "Stan Lee",
-  "areaId": 1,
-  "ano": 1970,
-  "editora": "Marvel"
-}
-
-###
-PUT http://localhost:5002/api/livros/95
-Content-Type: application/json
-{
-  "titulo": "Homem Aranha",
-  "autor": "Stan Lee",
-  "areaId": 1,
-  "ano": 1990,
-  "editora": "Marvel"
-}
+GET http://localhost:5002/api/usuarios

@@ -14,7 +14,7 @@ namespace ProjetoBiblioteca.Api.Endpoints
         const string GetAreasEndpoint = "GetAreas";
         public static void MapAreasEndpoints(this WebApplication app)
         {
-            var group = app.MapGroup("api/area");
+            var group = app.MapGroup("api/areas");
             group.MapGet("/", async (BibliotecaContext dbContext) =>
             await dbContext.areas
                 .Select(a => a.ToSummaryDto())

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BookList from "../../../components/Books/BookList"; 
-import SearchBar from "../../../components/UI/SearchBar/SearchBar"; 
+import SearchBar from "../../admin/GestaoLivros/components/SearchBarLivro/SearchBarLivro"; 
 import './style.css'
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");

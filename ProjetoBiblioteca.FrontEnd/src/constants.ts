@@ -12,10 +12,10 @@ export const ROUTES = {
     REGISTER: `${BASE_URL_APP}/cadastro`,
   },
   ADMIN: {
-    DASHBOARD: `${BASE_URL_APP}/admin/dashboard`,
-    GESTAO: `${BASE_URL_APP}/admin/gestao`,
+    DASHBOARD: `${BASE_URL_APP}/admin/`,
+    GESTAO: `${BASE_URL_APP}/admin/gestaolivros`,
     EMPRESTIMOS: `${BASE_URL_APP}/admin/emprestimos`,
-    USERS: `${BASE_URL_APP}/admin/usuarios`,
+    USERS: `${BASE_URL_APP}/admin/gestaousuarios`,
   }
 };
 
@@ -28,9 +28,5 @@ export const API_ENDPOINTS = {
   AREAS: `${API_BASE_URL}/areas`,
   EMPRESTIMOS: `${API_BASE_URL}/emprestimos`,
   USUARIOS: `${API_BASE_URL}/usuarios`,
-  LIVROS: {
-    BASE: `${API_BASE_URL}/livros`,
-    BY_ID: (id: string | number) => `${API_BASE_URL}/livros/${id}`,
-    SEARCH: (term: string) => `${API_BASE_URL}/livros/search?q=${term}`,
-  },
+  LIVROS: `${API_BASE_URL}/livros`
 };

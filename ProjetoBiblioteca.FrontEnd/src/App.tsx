@@ -14,7 +14,7 @@ import Dashboard from "./page/admin/Dashboard";
 import { ROUTES } from "./constants";
 import Login from "./page/auth/Login";
 import Cadastro from "./page/auth/Cadastro";
-import Gestao from "./page/admin/Gestao";
+import GestaoLivros from "./page/admin/GestaoLivros";
 import GerenciarUsuarios from "./page/admin/GerenciarUsuarios";
 import RegistrarEmprestimos from "./page/admin/RegistrarEmprestimos";
 
@@ -38,7 +38,7 @@ function App() {
             {/* Tudo aqui dentro usará o AdminLayout */}
             <Route element={<AdminLayout />}>
               <Route path={ROUTES.ADMIN.DASHBOARD} element={<Dashboard />} />
-              <Route path={ROUTES.ADMIN.GESTAO} element={<Gestao />} />
+              <Route path={ROUTES.ADMIN.GESTAO} element={<GestaoLivros />} />
               <Route path={ROUTES.ADMIN.USERS} element={<GerenciarUsuarios/>} />
               <Route path={ROUTES.ADMIN.EMPRESTIMOS} element={<RegistrarEmprestimos/>} />
             </Route>
