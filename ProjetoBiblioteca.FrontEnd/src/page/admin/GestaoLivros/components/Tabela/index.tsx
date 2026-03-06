@@ -1,12 +1,17 @@
 import useBooks from "../../../../../hooks/useBooks";
 import { useParams } from "react-router-dom";
 import { useSearch } from "../../../../../context/SearchContext";
-import FormInputEditLivro from "../FormInputEditLivro";
+// Importamos agora o formulário único (ajuste o nome do arquivo conforme salvou)
+import FormLivro from "../FormLivro";
 import "./style.css";
 import type Livro from "../../../../../interfaces/Livro";
 import { useState } from "react";
 
-export default function Tabela() {
+interface TabelaProps {
+  onEditar: (livro: Livro) => void;
+}
+
+export default function Tabela({ onEditar }: TabelaProps) {
   const { searchTerm } = useSearch();
   const { id } = useParams();
   const { livrosFiltrados, loading, excluirLivro } = useBooks(searchTerm, id);
@@ -19,24 +24,25 @@ export default function Tabela() {
 
   return (
     <div className="table-container">
-      {/* SE existir um livro selecionado, renderiza o formulário por cima */}
+      {/* O Modal agora é universal: serve para Criar ou Editar */}
       {livroParaEditar && (
         <div className="modal-overlay">
-          <FormInputEditLivro
+          <FormLivro
             livro={livroParaEditar}
             onClose={() => setLivroParaEditar(null)}
           />
         </div>
       )}
+
       <table className="custom-table">
         <thead>
           <tr>
-            <th>codigo</th>
-            <th>titulo</th>
-            <th>autor</th>
-            <th>area</th>
-            <th>ano</th>
-            <th>editora</th>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Área</th>
+            <th>Ano</th>
+            <th>Editora</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -51,15 +57,16 @@ export default function Tabela() {
                 <td>{el.ano}</td>
                 <td>{el.editora}</td>
                 <td>
-                  <button
-                    className="btn-edit"
-                    onClick={() => setLivroParaEditar(el)}
-                  >
+                  <button className="btn-edit" onClick={() => onEditar(el)}>
                     Editar
                   </button>
                   <button
                     className="btn-delete"
-                    onClick={() => excluirLivro(el.codigo)}
+                    onClick={() => {
+                      if (window.confirm("Tem certeza que deseja excluir?")) {
+                        excluirLivro(el.codigo);
+                      }
+                    }}
                   >
                     Excluir
                   </button>

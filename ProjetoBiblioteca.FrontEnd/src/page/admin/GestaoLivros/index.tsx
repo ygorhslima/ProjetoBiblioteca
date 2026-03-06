@@ -1,20 +1,20 @@
-import { Plus } from "lucide-react";
-import Tabela from "./components/Tabela";
 import "./style.css";
+import { Plus } from "lucide-react";
 import SearchBarLivro from "./components/SearchBarLivro/SearchBarLivro";
-import FormInputLivro from "./components/FormInputLivro";
+import Tabela from "./components/Tabela";
 import { useState } from "react";
 import type Livro from "../../../interfaces/Livro";
+import FormLivro from "./components/FormLivro";
 
 export default function GestaoLivros() {
-  const [livroParaCriar, setLivroParaCriar] = useState<Livro | null>(null);
+  const [livroSelecionado, setLivroSelecionado] = useState<Livro|null>(null);
   return (
     <>
-      {livroParaCriar && (
+      {livroSelecionado && (
         <div className="modal-overlay">
-          <FormInputLivro
-            livro={livroParaCriar}
-            onClose={() => setLivroParaCriar(null)}
+          <FormLivro
+            livro={livroSelecionado}
+            onClose={() => setLivroSelecionado(null)}
           />
         </div>
       )}
@@ -34,7 +34,7 @@ export default function GestaoLivros() {
             <button
               className="btn-add-livro"
               onClick={() =>
-                setLivroParaCriar({
+                setLivroSelecionado({
                   codigo: 0, // Ou remova se o ID for gerado no banco
                   titulo: "",
                   autor: "",
@@ -48,7 +48,7 @@ export default function GestaoLivros() {
             </button>
           </div>
         </div>
-        <Tabela />
+        <Tabela onEditar={setLivroSelecionado} />
       </div>
     </>
   );
