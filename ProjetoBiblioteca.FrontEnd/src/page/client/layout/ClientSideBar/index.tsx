@@ -38,9 +38,6 @@ export default function ClientSideBar({ isOpen }: SideBarProps) {
       <div className="view-books">
         <Link to={ROUTES.PUBLIC.LOGIN} className="link">Login</Link>
       </div>
-      <div className="view-books">
-        <Link to={ROUTES.PUBLIC.REGISTER} className="link">Cadastro</Link>
-      </div>
     </div>
   );
 }

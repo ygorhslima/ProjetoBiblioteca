@@ -9,7 +9,6 @@ export const ROUTES = {
   PUBLIC: {
     HOME: `${BASE_URL_APP}/home/livros`,
     LOGIN: `${BASE_URL_APP}/login`,
-    REGISTER: `${BASE_URL_APP}/cadastro`,
   },
   ADMIN: {
     DASHBOARD: `${BASE_URL_APP}/admin/`,

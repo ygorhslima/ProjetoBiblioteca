@@ -10,6 +10,7 @@ import {
   useContext,
   useState,
   useEffect,
+  type ReactNode,
 } from "react";
 import type Area from "../interfaces/Area";
 import { bookService } from "../services/BookService";

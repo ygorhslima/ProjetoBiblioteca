@@ -7,7 +7,7 @@ import type Livro from "../../../interfaces/Livro";
 import FormLivro from "./components/FormLivro";
 
 export default function GestaoLivros() {
-  const [livroSelecionado, setLivroSelecionado] = useState<Livro|null>(null);
+  const [livroSelecionado, setLivroSelecionado] = useState<Livro | null>(null);
   return (
     <>
       {livroSelecionado && (
@@ -20,22 +20,15 @@ export default function GestaoLivros() {
       )}
       <div className="gestao-container">
         <div className="pesquisa-tabela">
-          <div>
-            <span>Mostrar</span>
-            <select name="" id="">
-              <option value="">2</option>
-            </select>
-            <span>registros</span>
-          </div>
-          <div>
+          <div className="search-bar">
             <SearchBarLivro />
           </div>
-          <div>
+          <div className="btn">
             <button
               className="btn-add-livro"
               onClick={() =>
                 setLivroSelecionado({
-                  codigo: 0, // Ou remova se o ID for gerado no banco
+                  codigo: 0,
                   titulo: "",
                   autor: "",
                   ano: new Date().getFullYear(),

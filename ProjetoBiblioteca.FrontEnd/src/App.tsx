@@ -12,8 +12,7 @@ import Dashboard from "./page/admin/Dashboard";
 
 // Constantes (usando a sugestão anterior de ROUTES)
 import { ROUTES } from "./constants";
-import Login from "./page/auth/Login";
-import Cadastro from "./page/auth/Cadastro";
+import Login from "./page/auth/Login"
 import GestaoLivros from "./page/admin/GestaoLivros";
 import GerenciarUsuarios from "./page/admin/GerenciarUsuarios";
 import RegistrarEmprestimos from "./page/admin/RegistrarEmprestimos";
@@ -32,7 +31,6 @@ function App() {
               <Route path={ROUTES.PUBLIC.HOME} element={<Home />} />
               <Route path={`${ROUTES.PUBLIC.HOME}/:id`} element={<Home />} />
               <Route path={ROUTES.PUBLIC.LOGIN} element={<Login />} />
-              <Route path={ROUTES.PUBLIC.REGISTER} element={<Cadastro />} />
             </Route>
 
             {/* Tudo aqui dentro usará o AdminLayout */}

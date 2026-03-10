@@ -1,25 +1,47 @@
-.gestaousuario-container {
+.gestao-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   overflow: hidden;
 }
-span {
-  margin: 20px;
-}
+
 .pesquisa-tabela {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  padding: 20px 20px;
   background-color: #221a60;
   color: white;
-}
-.pesquisa-tabela div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
   width: 100%;
+  box-sizing: border-box;
 }
-select {
-  width: 24%;
+.pesquisa-tabela div:first-child {
+  display: flex;
+  flex: 1;
+  max-width: 600px;
+}
+
+.pesquisa-tabela div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-add-livro {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: #148f7d;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-add-livro:hover {
+  background-color: #0e4d44;
+  cursor: pointer;
+  transform: translateY(-2px); 
 }
