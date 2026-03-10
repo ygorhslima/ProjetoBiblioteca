@@ -42,7 +42,7 @@ a aplicação web é dividido em três grandes áreas
 	- **Criar ou atualizar as tabelas automaticamente** assim que o projeto inicia.
 	- Configura contexto do banco de dados
 
-- **Dtos**: Parte que modelam dados imutável (os chamados DTOs) que serão usados para modelar instanciação de objetos para Criar, ler, Atualizar e Deletar dados (CRUD) 
+- **Dtos**: Parte que modelam dados imutável (os chamados DTOs) que serão usados para modelar instanciação de objetos para Criar, ler, Atualizar e Deletar dados (CRUD)
 - **Endpoints**: são as rotas da aplicação, dos livros, das áreas, dos usuários... 
 - **Mapping**: são os retornos dos dados do CRUD, para simplificar os arquivos dos endpoints, eu separei para que o código ficasse legível e organizado
 - **Migrations**: são os arquivos de código que gerenciam as atualizações da API e banco de dados, é o que interliga a aplicação e o banco de dados de fato
@@ -56,14 +56,19 @@ a aplicação web é dividido em três grandes áreas
 ![[Pasted image 20260219134040.png]]
 # Frontend
 ## Área principal (Usuários)
+
 ![[Pasted image 20260219134446.png]]
+
+Na área principal da aplicação o usuário poderá:
+- visualizar todos os livros da biblioteca cadastrados
+- Visualizar os livros de acordo com a área ou gêneros de livros (como história, ficção científica, tecnologia e Fantasia) 
+- Pedir empréstimo de um livro
+- Visualizar detalhes sobre o livro (como descrição do livro e outras informações com mais detalhes)
 ## Login
 
 ![[Pasted image 20260219134543.png]]
 
-## Cadastro
-
-![[Pasted image 20260219134613.png]]
+Aqui o usuário pode fazer login a partir do CPF e a senha, o administrador da biblioteca inicialmente ele é que vai cadastrar o usuário (esse requisito pode ser alterado mais para frente)
 
 ## Área ADMIN
 
@@ -71,11 +76,21 @@ a aplicação web é dividido em três grandes áreas
 
 ![[Pasted image 20260219135457.png]]
 
-paǵina de dashboard que mostra todas as informações necessárias 
-### Gestão de Livros (CRUD)
+página de dashboard que mostra todas as informações necessárias, aqui o administrador poderá:
+- visualizar informações de todos os livros, áreas/gêneros de livros, empréstimos ativos e atrasos
+- Visualizar distribuição por área, por exemplo:
+	- 20% ficção científica
+	- 20% fantasia
+	- 30% História....
+- Ações rápidas como acessar outras páginas e gerar relatório
+### Gestão de Livros e Usuarios (CRUD)
 
 ![[Pasted image 20260219140217.png]]
 
+Os dois funcionam da mesma forma, adaptei o código para que as funcionalidades fossem idênticas, o Administrador poderá
+- pesquisar usuário ou livro na caixa de pesquisa com busca rápida
+- editar usuário ou livro
+- excluir usuário ou livro (nesta parte eu vou pensar em formas de deixar isso mais restritivo, como excluir o usuário somente quando estiver inativo após ter terminado a escola/faculdade, ou excluir após passar um limite de dias inativo (1000 dias, 900 dias...))
 
 ## ⚙️ Como Executar o Projeto
 
