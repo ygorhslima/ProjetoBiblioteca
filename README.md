@@ -52,21 +52,22 @@ a aplicação web é dividido em três grandes áreas
 
 # Models
 
+<img src="./design/models.png" alt="" />
 
-![[Pasted image 20260219134040.png]]
 # Frontend
 ## Área principal (Usuários)
 
-![[Pasted image 20260219134446.png]]
+<img src="./design/area-de-livros.png" alt="" />
 
 Na área principal da aplicação o usuário poderá:
 - visualizar todos os livros da biblioteca cadastrados
 - Visualizar os livros de acordo com a área ou gêneros de livros (como história, ficção científica, tecnologia e Fantasia) 
 - Pedir empréstimo de um livro
 - Visualizar detalhes sobre o livro (como descrição do livro e outras informações com mais detalhes)
+
 ## Login
 
-![[Pasted image 20260219134543.png]]
+<img src="./design/login.png" alt="" />
 
 Aqui o usuário pode fazer login a partir do CPF e a senha, o administrador da biblioteca inicialmente ele é que vai cadastrar o usuário (esse requisito pode ser alterado mais para frente)
 
@@ -74,7 +75,7 @@ Aqui o usuário pode fazer login a partir do CPF e a senha, o administrador da b
 
 ### Dashboard
 
-![[Pasted image 20260219135457.png]]
+<img src="./design/dashboard.png" alt="" />
 
 página de dashboard que mostra todas as informações necessárias, aqui o administrador poderá:
 - visualizar informações de todos os livros, áreas/gêneros de livros, empréstimos ativos e atrasos
@@ -83,9 +84,10 @@ página de dashboard que mostra todas as informações necessárias, aqui o admi
 	- 20% fantasia
 	- 30% História....
 - Ações rápidas como acessar outras páginas e gerar relatório
+
 ### Gestão de Livros e Usuarios (CRUD)
 
-![[Pasted image 20260219140217.png]]
+<img src="./design/crud-livro.png" alt="" />
 
 Os dois funcionam da mesma forma, adaptei o código para que as funcionalidades fossem idênticas, o Administrador poderá
 - pesquisar usuário ou livro na caixa de pesquisa com busca rápida
