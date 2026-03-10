@@ -104,7 +104,7 @@ Os dois funcionam da mesma forma, adaptei o código para que as funcionalidades 
 
 ### Pré-requisitos
 
-- [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
+- [.NET SDK 10.0+](https://dotnet.microsoft.com/download)
 - [Node.js](https://nodejs.org/) (versão LTS)
 - Um gerenciador de banco de dados
 
