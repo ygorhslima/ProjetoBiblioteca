@@ -2,6 +2,7 @@
 
 using ProjetoBiblioteca.Api.Data;
 using ProjetoBiblioteca.Api.Endpoints;
+using ProjetoBiblioteca.Api.Features.Emprestimos;
 using ProjetoBiblioteca.Api.Features.Usuarios;
 using ProjetoBiblioteca.Api.Services;
 
@@ -27,6 +28,7 @@ builder.AddBibliotecaDb();
 // porque addScoped? Porque o seu service usa o DbContext. O ciclo de vida "Scoped" garante que o banco de dados seja aberto e fechado corretamente a cada requisição HTTP, evitando vazamento de memória ou conexões presas
 builder.Services.AddScoped<ILivroService, LivroServices>();
 builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
+builder.Services.AddScoped<IEmprestimoService, EmprestimoServices>();
 var app = builder.Build();
 
 app.UseCors(myAllowSpecificOrigins);
@@ -36,6 +38,7 @@ app.MigrateDb();
 app.MapLivrosEndpoints();
 app.MapAreasEndpoints();
 app.MapUsuariosEndpoint();
+app.MapEmprestimosEndpoints();
 // -----------------------
 
 app.Run();

@@ -16,12 +16,12 @@ export const userService = {
 
   delete: (id: number) =>
     fetch(`${API_ENDPOINTS.USUARIOS}/${id}`, { method: "DELETE" }),
-  
-  update: (id:number, usuarioAtualizado:any) => {
-    fetch(`${API_ENDPOINTS.USUARIOS}/${id}`,{
-        method:"PUT",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(usuarioAtualizado)
-    })
+
+  update: (id: number, usuarioAtualizado: any) => {
+    fetch(`${API_ENDPOINTS.USUARIOS}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(usuarioAtualizado),
+    });
   },
 };

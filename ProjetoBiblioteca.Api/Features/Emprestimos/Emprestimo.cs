@@ -28,6 +28,4 @@ public class Emprestimo
     public DateTime DataDevolucaoPrevista { get; set; }
 
     public DateTime? DataDevolucaoReal { get; set; }
-
-    Area Area { get; set; }
 }

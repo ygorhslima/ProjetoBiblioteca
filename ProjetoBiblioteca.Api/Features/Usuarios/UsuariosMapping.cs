@@ -50,5 +50,6 @@ public static class UsuariosMapping
         existingUsuario.Telefone = dto.Telefone;
         existingUsuario.Senha = dto.Senha;
         return existingUsuario;
+        
     }
 }
