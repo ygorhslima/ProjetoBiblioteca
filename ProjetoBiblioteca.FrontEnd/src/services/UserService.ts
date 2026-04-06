@@ -3,7 +3,7 @@
 import { API_ENDPOINTS } from "../constants";
 
 export const userService = {
-  getAllUsers: () =>
+  getAll: () =>
     fetch(`${API_ENDPOINTS.USUARIOS}`).then((res) => res.json()),
 
   create: (novoUsuario: any) => {

@@ -11,7 +11,7 @@ const useUsers = (searchUser: string, id?: number) => {
   const loadData = async () => {
     try {
       setLoading(true);
-      const [usersData] = await Promise.all([userService.getAllUsers()]);
+      const [usersData] = await Promise.all([userService.getAll()]);
       setUsuario(usersData);
     } catch (error) {
       console.error("Erro ao buscar dados: ", error);
@@ -56,13 +56,8 @@ const useUsers = (searchUser: string, id?: number) => {
     dadosAtualizados: Partial<Usuario>,
   ) => {
     try {
-      const response: Response = await userService.update(id, dadosAtualizados);
-
-      if (response.ok) {
-        await loadData();
-        return true;
-      }
-
+      userService.update(id, dadosAtualizados);
+      await loadData();
       return true;
     } catch (error) {
       console.error("erro ao editar livro: ", error);
@@ -75,7 +70,7 @@ const useUsers = (searchUser: string, id?: number) => {
   ): Promise<boolean> => {
     try {
       setLoading(true);
-      await userService.create(novoUsuario);
+      userService.create(novoUsuario);
       await loadData();
       return true;
     } catch (error) {

@@ -1,4 +1,5 @@
 import useBooks from "../../../hooks/useBooks";
+import useEmprestimo from "../../../hooks/useEmprestimo";
 import useUsers from "../../../hooks/useUsers";
 import TabelaEmprestimo from "./components/TabelaEmprestimo";
 import "./style.css";
@@ -6,6 +7,8 @@ import "./style.css";
 export default function RegistrarEmprestimos() {
   const { livrosFiltrados } = useBooks("");
   const { usersFiltrados } = useUsers("");
+  const { emprestimos, realizarDevolucao } = useEmprestimo();
+  
   return (
     <div className="registrar-emprestimos-container">
       <h1>Registrar Empréstimos</h1>
@@ -47,13 +50,13 @@ export default function RegistrarEmprestimos() {
             </select>
           </div>
 
-          <button type="submit" className="btn-registrar">
+          <button type="submit" className="btn-registrar" onClick={()=>{}}>
             Registrar
           </button>
         </form>
       </section>
 
-      <TabelaEmprestimo />
+      <TabelaEmprestimo emprestimos={emprestimos} realizarDevolucao={realizarDevolucao} />
     </div>
   );
 }

@@ -1,6 +1,12 @@
-import "../../style.css"
+import type Emprestimo from "../../../../../interfaces/Emprestimo";
+import "../../style.css";
 
-const TabelaEmprestimo = () => {
+interface TabelaEmprestimo {
+  emprestimos: Emprestimo[];
+  realizarDevolucao: (id: number) => void;
+}
+
+const TabelaEmprestimo = ({ emprestimos, realizarDevolucao }: TabelaEmprestimo) => {
   return (
     <>
       <section className="list-section-table">
@@ -16,34 +22,30 @@ const TabelaEmprestimo = () => {
             </tr>
           </thead>
           <tbody>
-            {/** 
-             *      {emprestimos.length > 0 ? (
-                    emprestimos.map(emprestimo => (
-                        <tr key={emprestimo.id}>
-                        <td>{emprestimo.usuario.nome}</td>
-                        <td>{emprestimo.livro.titulo}</td>
-                        <td>{emprestimo.dataEmprestimo}</td>
-                        <td>{emprestimo.dataDevolucaoPrevista}</td>
-                        <td>
-                            <button onClick={() => handleDevolverLivro(emprestimo.id)} className="btn-devolver" >
-                            Devolver
-                            </button>
-                        </td>
-                        </tr>
-                    ))
-                    ) : (
-                    <tr>
-                        <td colSpan={5}>Nenhum empréstimo ativo no momento.</td>
-                    </tr>
-                    )}
-             * 
-             * 
-             * 
-            */}
+            {emprestimos.length > 0 ? (
+              emprestimos.map((emprestimo) => (
+                <tr key={emprestimo.id}>
+                  <td>{emprestimo.usuario?.nome || "Usuário não encontrado"}</td>
+                  <td>{emprestimo.livro?.titulo || "Livro não encontrado"}</td>
+                  <td>{new Date(emprestimo.dataEmprestimo).toLocaleDateString()}</td>
+                  <td>{new Date(emprestimo.dataDevolucaoPrevista).toLocaleDateString()}</td>
+                  <td>
+                    <button onClick={() => realizarDevolucao(emprestimo.id)}>
+                      Devolver
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={5}>Nenhum empréstimo ativo no momento.</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </section>
     </>
   );
 };
+
 export default TabelaEmprestimo;
