@@ -34,10 +34,10 @@ public class EmprestimoServices(BibliotecaContext dbContext) : IEmprestimoServic
     public async Task<bool> UpdateEmprestimoAsync(int Id, UpdateEmprestimoDto dto)
     {
         var existingEmprestimo = await dbContext.emprestimos.FindAsync(Id);
-        if(existingEmprestimo is null) return false;
+        if (existingEmprestimo is null) return false;
         existingEmprestimo.UpdateEntity(dto);
         await dbContext.SaveChangesAsync();
-        return true; 
+        return true;
     }
 
     public async Task<bool> DeleteEmprestimoAsync(int Id)

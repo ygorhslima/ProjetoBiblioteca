@@ -1,12 +1,14 @@
-// src/components/layout/SideBar/ClientSideBar.tsx
+"use client"
+
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLibrary } from "../../../../context/LibraryContext";
 import { ROUTES } from "../../../../constants"; 
 import './style.css'
-// Note que movi a interface para cá para eliminar o arquivo extra em /interfaces
 import type SideBarProps from "../../../../interfaces/SideBarProps";
+
+
 export default function ClientSideBar({ isOpen }: SideBarProps) {
   const { areas } = useLibrary();
   const [dropdown, setDropdown] = useState(false);
