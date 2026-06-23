@@ -1,44 +1,62 @@
-
-
 using ProjetoBiblioteca.Api.Data;
 using ProjetoBiblioteca.Api.Endpoints;
 using ProjetoBiblioteca.Api.Features.Emprestimos;
 using ProjetoBiblioteca.Api.Features.Usuarios;
 using ProjetoBiblioteca.Api.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Defina o nome da política
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-// 2. Adicione o serviço de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: myAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:5173")
-                                .AllowAnyHeader()
-                                .AllowAnyMethod();
-                      });
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
 
 builder.Services.AddValidation();
 builder.AddBibliotecaDb();
-// porque addScoped? Porque o seu service usa o DbContext. O ciclo de vida "Scoped" garante que o banco de dados seja aberto e fechado corretamente a cada requisição HTTP, evitando vazamento de memória ou conexões presas
+
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ILivroService, LivroServices>();
 builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
 builder.Services.AddScoped<IEmprestimoService, EmprestimoServices>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer           = true,
+            ValidateAudience         = true,
+            ValidateLifetime         = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer              = builder.Configuration["Jwt:Issuer"],
+            ValidAudience            = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey         = new SymmetricSecurityKey(
+                                           Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
-
 app.UseCors(myAllowSpecificOrigins);
-app.MigrateDb();
+app.UseAuthentication();
+app.UseAuthorization();
 
-//--------- endpoint --------------
+app.MigrateDb();
 app.MapLivrosEndpoints();
 app.MapAreasEndpoints();
 app.MapUsuariosEndpoint();
 app.MapEmprestimosEndpoints();
-// -----------------------
 
 app.Run();

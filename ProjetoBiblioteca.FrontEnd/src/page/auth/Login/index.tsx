@@ -1,16 +1,7 @@
-import wallpaper from "../../../assets/wallpaper.jpg";
-import './style.css'
+import "./style.css";
 export default function Login() {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${wallpaper})`,
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-        height: "100%",
-        width: "100%",
-      }}
-    >
+    <div className="container-login">
       <div className="form-login">
         <label>CPF</label>
         <input type="text" className="input-login" />

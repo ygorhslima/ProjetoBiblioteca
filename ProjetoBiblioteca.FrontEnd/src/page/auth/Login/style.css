@@ -1,18 +1,37 @@
-.form-login{
+/* Garante que a página ocupe a altura total */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container-login {
     display: flex;
     flex-direction: column;
-    margin: 20px auto;
-    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh; /* Garante que nunca seja menor que a tela */
+    background-image: url('../../../assets/wallpaper.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-login {
+    display: flex; 
+    flex-direction: column;
+    width: 90%;          /* Responsivo em mobile */
+    max-width: 500px;    /* Limite de largura */
+    padding: 30px;
     background-color: rgba(55, 61, 66, 0.8);
     backdrop-filter: blur(10px);
-    width: 100%;
-    max-width: 500px;
     border-radius: 15px;
-    height: auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-label{
+
+label {
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -21,24 +40,32 @@ label{
     margin-bottom: 5px;
     margin-left: 5px;
 }
-.input-login{
-   padding: 12px 15px;
+
+.input-login {
+    padding: 12px 15px;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
     color: white;
-    outline: 1px solid #ffffff33;
+    outline: none;
     transition: all 0.3s ease;
 }
 
-.btn_login{
-    padding: 10px;
-    background-color: rgba(230, 223, 223, 0.742);
-    border-radius: 10px;
-    transition: 0.7s;
+.input-login:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.btn_login:hover{
-    background-color: #cdc8c89e;
+.btn_login {
+    padding: 12px;
+    background-color: rgba(230, 223, 223, 0.9);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn_login:hover {
+    background-color: #ffffff;
 }

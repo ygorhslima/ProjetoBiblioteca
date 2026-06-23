@@ -24,15 +24,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             {/* ROTA DE REDIRECIONAMENTO INICIAL */}
-            <Route path="/" element={<Navigate to={ROUTES.PUBLIC.HOME} />} />
+            <Route path="/" element={<Navigate to={ROUTES.PUBLIC.LOGIN} />} />
+            <Route path={ROUTES.PUBLIC.LOGIN} element={<Login />} />
 
             {/* Tudo aqui dentro usará o ClientLayout */}
             <Route element={<ClientLayout />}>
               <Route path={ROUTES.PUBLIC.HOME} element={<Home />} />
               <Route path={`${ROUTES.PUBLIC.HOME}/:id`} element={<Home />} />
-              <Route path={ROUTES.PUBLIC.LOGIN} element={<Login />} />
             </Route>
-
             {/* Tudo aqui dentro usará o AdminLayout */}
             <Route element={<AdminLayout />}>
               <Route path={ROUTES.ADMIN.DASHBOARD} element={<Dashboard />} />

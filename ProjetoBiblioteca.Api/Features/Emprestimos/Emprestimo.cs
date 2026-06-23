@@ -7,6 +7,7 @@ namespace ProjetoBiblioteca.Api.Models;
 public class Emprestimo
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     [Required]

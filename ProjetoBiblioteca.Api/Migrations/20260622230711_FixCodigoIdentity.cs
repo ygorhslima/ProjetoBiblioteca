@@ -5,7 +5,7 @@
 namespace ProjetoBiblioteca.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class TirandoAreaNoEmprestimo : Migration
+    public partial class FixCodigoIdentity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
